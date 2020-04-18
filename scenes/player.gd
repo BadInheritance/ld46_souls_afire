@@ -3,6 +3,17 @@ extends KinematicBody2D
 export var walkingSpeed = 1.0
 
 onready var sprite = $AnimatedSprite
+onready var item_picking = $"Item picking"
+
+func _process(delta):
+	if Input.is_action_just_pressed("player_putdown"):
+		var item = item_picking.put_down(self.position)
+		if item != null:
+			return
+		
+	if Input.is_action_just_pressed("player_action"):
+		if item_picking.try_pickup():
+			return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

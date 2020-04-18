@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Lamp/lightB03.png" type="Texture" id=1]
 [ext_resource path="res://assets/Lamp/lightB01.png" type="Texture" id=2]
 [ext_resource path="res://assets/Lamp/lightB02.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Pickable.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,5 +16,8 @@ animations = [ {
 [node name="Lamp" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -7.11504 )
 frames = SubResource( 1 )
-frame = 1
+playing = true
+
+[node name="Pickable" parent="." instance=ExtResource( 4 )]

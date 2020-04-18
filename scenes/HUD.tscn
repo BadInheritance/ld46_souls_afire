@@ -21,10 +21,11 @@ animations = [ {
 position = Vector2( 950, 500 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 6 )
+SHORTENING_RATE = 1.0
 
 [node name="Flame" type="AnimatedSprite" parent="Candle"]
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Wax" type="Sprite" parent="Candle"]

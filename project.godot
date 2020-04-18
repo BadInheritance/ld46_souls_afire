@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Ld 46 Souls Afire"
-run/main_scene="res://temp_scenes/test_player_actions.tscn"
 config/icon="res://icon.png"
 
 [input]

@@ -6,18 +6,11 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 0 )
-
-[node name="Map" parent="CanvasLayer" instance=ExtResource( 4 )]
-
-[node name="Node2D" parent="CanvasLayer/Map" instance=ExtResource( 2 )]
-position = Vector2( 117.283, 111.509 )
-walkingSpeed = 4.0
-
 [node name="HUD layer" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
 
 [node name="HUD" parent="HUD layer" instance=ExtResource( 1 )]
-position = Vector2( 312.861, 142.71 )
+
+[node name="Map" parent="." instance=ExtResource( 4 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 108.3, 111.008 )

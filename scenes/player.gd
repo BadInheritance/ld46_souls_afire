@@ -6,11 +6,14 @@ onready var sprite = $AnimatedSprite
 onready var item_picking = $"Item picking"
 var alive = true
 
+signal die
+
 func on_on_hole():
     if alive:
         scale = Vector2(0.1, 0.1)
         alive = false
         print_debug("Player died")
+        emit_signal("die")
 
 func _process(delta):
     if Input.is_action_just_pressed("player_putdown"):

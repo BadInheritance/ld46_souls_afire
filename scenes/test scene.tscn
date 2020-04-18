@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 536, 304 )
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2( 4, 4 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+scale = Vector2( 2.57143, 2.75 )
+polygon = PoolVector2Array( -56, 32, 56, 32, 56, -32, -56, -32 )
+
+[node name="Node2D" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 0, -8 )

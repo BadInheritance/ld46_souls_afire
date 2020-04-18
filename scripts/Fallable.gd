@@ -1,7 +1,5 @@
 extends Node2D
 
-signal fall_die
-
 var fallen = false
 var character_jumping = false
 var character = null
@@ -14,14 +12,10 @@ func on_jump_end():
 
 func _ready():
 	character = get_parent()
-	connect("fall_die", character, "on_die")
-	character.connect("player_jump_start", self, "on_jump_start")
-	character.connect("player_jump_end", self, "on_jump_end")
-	pass # Replace with function body.
+	assert(character.has_method("on_on_hole") && "add a on_on_hole function in parent object")
+	pass 
 
 
 func on_on_hole():
-	if !fallen && !character_jumping:
-		emit_signal("fall_die")
-	fallen = true
+	character.on_on_hole()
 

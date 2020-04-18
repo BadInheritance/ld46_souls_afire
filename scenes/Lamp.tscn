@@ -15,5 +15,6 @@ animations = [ {
 [node name="Lamp" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -7.11504 )
 frames = SubResource( 1 )
 frame = 1

@@ -24,7 +24,7 @@ script = ExtResource( 6 )
 
 [node name="Flame" type="AnimatedSprite" parent="Candle"]
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Wax" type="Sprite" parent="Candle"]
@@ -33,5 +33,4 @@ region_enabled = true
 region_rect = Rect2( 0, 5, 32, 22 )
 
 [node name="Base" type="Sprite" parent="Candle"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )

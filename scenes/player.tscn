@@ -19,19 +19,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "hit",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 12 )
+extents = Vector2( 6.45087, 2.18496 )
 
 [node name="Node2D" type="KinematicBody2D"]
 script = ExtResource( 10 )
@@ -41,11 +41,10 @@ walkingSpeed = 10.0
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 0, -14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, -10 )
+position = Vector2( 0, -2.19458 )
 shape = SubResource( 2 )

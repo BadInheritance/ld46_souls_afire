@@ -22,7 +22,6 @@ func on_on_hole():
     if alive:
         scale = Vector2(0.1, 0.1)
         alive = false
-        print_debug("Enemy died")
 
 
 func _get_current_time():

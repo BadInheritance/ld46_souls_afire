@@ -20,14 +20,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	shortening_time += delta
-	if shortening_time > SHORTENING_RATE:
+	if shortening_time > SHORTENING_RATE && ! extinguished:
 		#Recognize burnt down candle
 		if wax_region_y >= CANDLE_LENGTH:
 			emit_signal("candle_die")
-
-		#Shorten candle
-		shortening_time = 0
-		wax_region_y += 1
-		$Wax.region_rect = Rect2(0, wax_region_y, 32, 22)
-		$Wax.position.y += 1
-		$Flame.position.y += 1
+			extinguished = true
+		else:
+			shortening_time = 0
+			wax_region_y += 1
+			$Wax.region_rect = Rect2(0, wax_region_y, 32, 22)
+			$Wax.position.y += 1
+			$Flame.position.y += 1

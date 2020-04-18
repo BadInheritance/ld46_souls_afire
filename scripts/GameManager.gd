@@ -15,9 +15,12 @@ func _ready():
 
 
 func on_player_death():
-	print("player died, starting timer")
 	level_reload_timer.start(levelReloadTimeSeconds)
 
+func on_candle_death():
+	var candle_text = current_level.find_node("candle_burnt_down_text")
+	candle_text.visible = true;
+	level_reload_timer.start(levelReloadTimeSeconds)
 
 func _connect_end_game_signals(level):
 	var player = level.get_node("player")
@@ -26,7 +29,7 @@ func _connect_end_game_signals(level):
 
 	var candle = level.find_node("Candle")
 	assert(candle != null && "make sure there is a player with name 'Candle' in the scene")
-	candle.connect("candle_die", self, "on_player_death")
+	candle.connect("candle_die", self, "on_candle_death")
 
 func _load_level(level_name):
 	var level_scene =	load("res://scenes/" + level_name)

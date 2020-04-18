@@ -12,7 +12,6 @@ func on_on_hole():
     if alive:
         scale = Vector2(0.1, 0.1)
         alive = false
-        print_debug("Player died")
         emit_signal("die")
 
 func _process(delta):

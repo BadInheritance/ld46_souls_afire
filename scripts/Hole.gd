@@ -13,5 +13,5 @@ func _ready():
 func _process(delta):
 	var nodes = AreaUtils.get_nodes_of_group_in_area(hole_area, "fallable")
 	for node in nodes:
-		connect("fall", node, "on_hole_fall")
+		connect("fall", node, "on_on_hole")
 		emit_signal("fall")

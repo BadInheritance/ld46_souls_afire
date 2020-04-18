@@ -22,15 +22,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "hit",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -42,13 +42,13 @@ radius = 20.761
 [node name="Node2D" type="KinematicBody2D"]
 z_index = 1
 script = ExtResource( 10 )
-walkingSpeed = 10.0
+rollingSpeed = 20
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -58,6 +58,7 @@ z_index = 1
 shape = SubResource( 2 )
 
 [node name="Item picking" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="Item picking"]
@@ -78,3 +79,8 @@ zoom = Vector2( 0.5, 0.5 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+
+[node name="RollingTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+[connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

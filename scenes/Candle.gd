@@ -1,6 +1,6 @@
 extends Node2D
 
-var SHORTENING_RATE = 0.3
+export var SHORTENING_RATE = 0.3
 var CANDLE_LENGTH = 20
 var shortening_time
 var wax_region_y

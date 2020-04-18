@@ -25,7 +25,6 @@ SHORTENING_RATE = 1.0
 
 [node name="Flame" type="AnimatedSprite" parent="Candle"]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Wax" type="Sprite" parent="Candle"]

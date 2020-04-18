@@ -24,6 +24,10 @@ func _connect_end_game_signals(level):
 	assert(player != null && "make sure there is a player with name 'player' in the scene")
 	player.connect("die", self, "on_player_death")
 
+	var candle = level.find_node("Candle")
+	assert(candle != null && "make sure there is a player with name 'Candle' in the scene")
+	candle.connect("candle_die", self, "on_player_death")
+
 func _load_level(level_name):
 	var level_scene =	load("res://scenes/" + level_name)
 	var level = level_scene.instance() 

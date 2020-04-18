@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/wizzard_f_idle_anim_f2.png" type="Texture" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/wizzard_f_idle_anim_f0.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/player.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Item picking.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Oscillating.gd" type="Script" id=12]
+[ext_resource path="res://prefabs/DoorOpener.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
@@ -21,15 +22,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "hit",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hit",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -39,6 +40,7 @@ extents = Vector2( 6.45087, 2.18496 )
 radius = 20.761
 
 [node name="Node2D" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 10 )
 walkingSpeed = 10.0
 
@@ -46,12 +48,13 @@ walkingSpeed = 10.0
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 0, -14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2.19458 )
+z_index = 1
 shape = SubResource( 2 )
 
 [node name="Item picking" type="Node2D" parent="."]
@@ -66,3 +69,5 @@ shape = SubResource( 3 )
 position = Vector2( 8.30417, -18.7674 )
 script = ExtResource( 12 )
 width = 1.0
+
+[node name="DoorOpener" parent="." instance=ExtResource( 13 )]

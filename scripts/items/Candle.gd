@@ -1,6 +1,6 @@
 extends Node2D
 
-export var shorteningTimeoutSeconds = 10.0
+export var shorteningTimeoutSeconds = 60.0
 export var wallSpellCost = 5.0
 
 signal candle_die

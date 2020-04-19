@@ -1,6 +1,5 @@
 extends Node2D
 
-var fallen = false
 var character = null
 
 

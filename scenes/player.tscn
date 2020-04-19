@@ -53,6 +53,7 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -84,7 +85,7 @@ drag_margin_v_enabled = true
 smoothing_enabled = true
 
 [node name="RollingTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [node name="WallTimer" type="Timer" parent="."]

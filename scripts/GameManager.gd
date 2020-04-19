@@ -10,6 +10,7 @@ export (String, FILE, "*.tscn") var level1_path = "res://scenes/level1.tscn"
 export var levelReloadTimeSeconds = 1
 var current_level = null
 var current_level_index = 0
+var loading_level = false
 
 var levels = [
 	level_scene_path,
@@ -27,12 +28,16 @@ func on_level_reload_timeout():
 
 
 func _is_about_to_reload_scene():
-	return level_reload_timer.time_left > 0
+	return loading_level
 
 func _ready():
 	level_reload_timer.connect("timeout", self, "on_level_reload_timeout")
 	hud.connect("candle_die", self, "on_candle_death")
 	on_level_reload_timeout()
+
+func start_level_load_timer():
+	loading_level = true
+	level_reload_timer.start(levelReloadTimeSeconds)
 
 func on_level_completed():
 	if new_level_available():
@@ -41,23 +46,24 @@ func on_level_completed():
 	else:
 		hud._set_hud_main_text("[center] Game Completed! [/center]")
 		current_level_index = 0
-	level_reload_timer.start(levelReloadTimeSeconds)
+	start_level_load_timer()
 
 func on_player_reached_hatch():
-	if ! _is_about_to_reload_scene():
+	if !_is_about_to_reload_scene():
+		print("on level completed")
 		on_level_completed()
 
 
 func on_player_death():
 	if ! _is_about_to_reload_scene():
 		hud._set_hud_main_text("[center] You Died :( [/center]")
-		level_reload_timer.start(levelReloadTimeSeconds)
+		start_level_load_timer()
 
 
 func on_candle_death():
 	if ! _is_about_to_reload_scene():
 		hud._set_hud_main_text("[center] No! Candle burnt down :( [/center]")
-		level_reload_timer.start(levelReloadTimeSeconds)
+		start_level_load_timer()
 
 
 func _connect_end_game_signals(level):
@@ -75,9 +81,12 @@ func _load_level(level_path):
 	# clear current_level_holder's children
 	for child in current_level_holder.get_children():
 		child.queue_free()
+	current_level_holder.remove_child(current_level)
 	current_level = level
 	current_level_holder.add_child(current_level)
 
 	var player_camera: Camera2D = level.get_node("player").find_node("camera")
 	player_camera.current = true
 	hud.on_level_reset()
+	print("level loaded")
+	loading_level = false

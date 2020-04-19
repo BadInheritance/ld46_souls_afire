@@ -33,8 +33,7 @@ animations = [ {
 [node name="enemy" type="KinematicBody2D"]
 script = ExtResource( 9 )
 walkingSpeed = 2.0
-maxDistanceFromStartingPosition = 500
-sightDistance = 150.0
+maxDistanceFromStartingPosition = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -44,6 +43,7 @@ position = Vector2( -0.68113, -15.4404 )
 scale = Vector2( 0.851005, 0.9054 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="Fallable" parent="." instance=ExtResource( 3 )]

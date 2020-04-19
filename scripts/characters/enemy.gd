@@ -6,7 +6,6 @@ export var walkingSpeed = 4.0
 export var directionChangeProbability = 0.8
 export var maxDistanceFromStartingPosition = 50
 export var currentState = ENEMY_STATE.IDLE_MOVE
-export var sightDistance = 50.0
 
 onready var navigation = find_parent("Navigation2D")
 onready var tilemap = navigation.get_node("TileMap")

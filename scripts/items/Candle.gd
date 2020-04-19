@@ -1,6 +1,6 @@
 extends Node2D
 
-export var shorteningTimeoutSeconds = 60
+var shorteningTimeoutSeconds = 60
 export var wallSpellCost = 5.0
 
 signal candle_die
@@ -13,6 +13,10 @@ func _ready():
 	timer.connect("timeout", self, "_on_timeout")
 
 onready var is_burning = true
+
+func set_candle_time(candle_time):
+	shorteningTimeoutSeconds = candle_time
+	timer.start(shorteningTimeoutSeconds)
 
 func _add_to_timer(seconds):
 	if timer.time_left > 0:

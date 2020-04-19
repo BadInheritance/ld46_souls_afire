@@ -5,6 +5,10 @@ signal candle_die
 func on_level_reset():
 	_set_hud_main_text("")
 	find_node("Candle").reset_candle()
+	find_node("Candle").set_candle_visible(false)
+
+func _on_set_candle_visible(visible):
+	find_node("Candle").set_candle_visible(visible)
 
 func on_wall_spell():
 	find_node("Candle").consume_wall_spell()

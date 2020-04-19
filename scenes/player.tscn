@@ -53,7 +53,6 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -94,4 +93,6 @@ one_shot = true
 [node name="Fallable" parent="." instance=ExtResource( 14 )]
 
 [node name="Hatchable" parent="." instance=ExtResource( 15 )]
+
+[connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

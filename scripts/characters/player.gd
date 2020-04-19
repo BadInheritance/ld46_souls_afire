@@ -7,7 +7,9 @@ onready var item_picking = $"Item picking"
 
 func _process(delta):
 	if Input.is_action_just_pressed("player_putdown"):
-		var item = item_picking.put_down(self.position)
+		var target_position = self.position
+		target_position.x += 15
+		var item = item_picking.put_down(target_position)
 		if item != null:
 			return
 		

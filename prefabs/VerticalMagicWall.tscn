@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tilemap/wall_side_mid_left.png" type="Texture" id=1]
+[ext_resource path="res://scripts/items/MagicWall.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 8 )
+
+[node name="VerticalWall" type="Node2D"]
+script = ExtResource( 2 )
+wallDirection = "Vertical"
+
+[node name="WallSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 11, 0, 5, 16 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+scale = Vector2( 0.4, 1 )
+shape = SubResource( 1 )

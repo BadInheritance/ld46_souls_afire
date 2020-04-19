@@ -5,6 +5,7 @@ export var runningSpeed = 15
 export var snagSpeed    = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
+export var normalPlayerVolumeDb = -20
 
 onready var sprite = $PlayerSprite
 onready var item_picking = $"Item picking"
@@ -29,6 +30,10 @@ signal player_reached_hatch(with_lamp)
 signal cast_wall_spell
 signal activate_fountain
 signal on_candle_visible(visible)
+
+func _ready():
+	walkingSound.volume_db = normalPlayerVolumeDb 
+	rollSound.volume_db = normalPlayerVolumeDb
 
 func on_on_hatch():
 	emit_signal("player_reached_hatch", item_picking.is_holding_lamp() )

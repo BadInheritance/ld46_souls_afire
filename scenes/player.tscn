@@ -52,7 +52,7 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -89,3 +89,4 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Fallable" parent="." instance=ExtResource( 14 )]
+[connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

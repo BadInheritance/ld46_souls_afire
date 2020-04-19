@@ -100,8 +100,9 @@ func _process_walking(delta):
 
 	if wallTimer.is_stopped():
 		if dir != Vector2.ZERO and Input.is_action_just_pressed('player_roll'):
-			_start_rolling(dir)
-			return
+			if ! item_picking.is_holding_lamp():
+				_start_rolling(dir)
+				return
 
 		var speed = walkingSpeed
 		if Input.is_action_pressed("player_run"):

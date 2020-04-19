@@ -22,6 +22,9 @@ func get_object_to_pickup() -> Node2D:
 			return parent.get_parent()
 	return null
 
+func is_holding_lamp():
+	return is_holding_something() && holding.name == "Lamp"
+
 func is_holding_something():
 	return holding != null
 

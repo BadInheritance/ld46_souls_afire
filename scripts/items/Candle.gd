@@ -1,6 +1,6 @@
 extends Node2D
 
-export var shorteningTimeoutSeconds = 10
+export var shorteningTimeoutSeconds = 10.0
 const candleLength = 20
 
 signal candle_die

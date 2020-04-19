@@ -16,7 +16,10 @@ var alive = true
 var facing_direction = "right"
 
 signal player_die
+signal player_reached_hatch
 
+func on_on_hatch():
+	emit_signal("player_reached_hatch")
 
 func on_on_hole():
 	if alive and not is_rolling():

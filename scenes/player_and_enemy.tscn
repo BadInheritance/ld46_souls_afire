@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://tilemap/main_tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/big_demon_idle_anim_f2.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://prefabs/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://prefabs/Hole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/Fallable.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/Hatch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://prefabs/VerticalMagicWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Lamp.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/HorizontalMagicWall.tscn" type="PackedScene" id=14]
@@ -25,7 +26,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 9.10754, 11.5418 )
+extents = Vector2( 11.0817, 11.5418 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22.7541, 35.9903 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,7 +51,6 @@ position = Vector2( -0.68113, -2.72448 )
 scale = Vector2( 0.851005, 0.9054 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="Fallable" parent="enemy" instance=ExtResource( 9 )]
@@ -56,7 +59,6 @@ playing = true
 position = Vector2( -0.663422, -96.1961 )
 
 [node name="hole" parent="." instance=ExtResource( 8 )]
-visible = false
 position = Vector2( -224.237, -222.91 )
 
 [node name="Area2D" type="Area2D" parent="hole"]
@@ -64,8 +66,10 @@ position = Vector2( -224.237, -222.91 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hole/Area2D"]
 shape = SubResource( 3 )
 
+[node name="Hatch" parent="hole/Area2D/CollisionShape2D" instance=ExtResource( 10 )]
+position = Vector2( 178.784, -55.4511 )
+
 [node name="hole2" parent="." instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 63.1578, -256.439 )
 
 [node name="Area2D" type="Area2D" parent="hole2"]
@@ -84,3 +88,12 @@ position = Vector2( -13.1382, -19.25 )
 
 [node name="VerticalWall" parent="." instance=ExtResource( 12 )]
 position = Vector2( 36.3473, -27.7819 )
+
+[node name="hole3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -392.595, -88.0258 )
+
+[node name="Area2D" type="Area2D" parent="hole3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole3/Area2D"]
+position = Vector2( 0.440155, 0.880264 )
+shape = SubResource( 4 )

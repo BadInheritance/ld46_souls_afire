@@ -62,7 +62,6 @@ z_index = 1
 shape = SubResource( 2 )
 
 [node name="Item picking" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="Item picking"]
@@ -86,6 +85,9 @@ smoothing_enabled = true
 
 [node name="RollingTimer" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
+
+[node name="WallTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Fallable" parent="." instance=ExtResource( 14 )]

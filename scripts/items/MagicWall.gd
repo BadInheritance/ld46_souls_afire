@@ -1,6 +1,6 @@
 extends Node2D
 
-export var growthRate = 0.1
+export var growthRate = 0.0625
 export var wallDuration = 3
 export(String, "Horizontal", "Vertical") var wallDirection = "Horizontal"
 const WALL_HEIGHT = 16

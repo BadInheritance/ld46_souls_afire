@@ -14,6 +14,7 @@
 [ext_resource path="res://scripts/items/Oscillating.gd" type="Script" id=12]
 [ext_resource path="res://prefabs/DoorOpener.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/Fallable.tscn" type="PackedScene" id=14]
+[ext_resource path="res://prefabs/Hatchable.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
@@ -88,14 +89,13 @@ drag_margin_v_enabled = true
 smoothing_enabled = true
 
 [node name="RollingTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [node name="WallTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Fallable" parent="." instance=ExtResource( 14 )]
-visible = false
 
 [node name="visibility for enemies" type="Area2D" parent="." groups=[
 "player",
@@ -104,4 +104,7 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="visibility for enemies"]
 position = Vector2( -0.795517, -9.9796 )
 shape = SubResource( 4 )
+
+[node name="Hatchable" parent="." instance=ExtResource( 15 )]
+[connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

@@ -1,14 +1,7 @@
 extends Node2D
 
-var fallen = false
-var character_jumping = false
 var character = null
 
-func on_jump_start():
-	character_jumping = true
-
-func on_jump_end():
-	character_jumping = false
 
 func _ready():
 	character = get_parent()
@@ -18,4 +11,3 @@ func _ready():
 
 func on_on_hole():
 	character.on_on_hole()
-

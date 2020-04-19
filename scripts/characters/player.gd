@@ -24,7 +24,7 @@ func on_on_hatch():
 	emit_signal("player_reached_hatch")
 
 func _on_object_pick_up_update(action, object):
-	#print("put " + action + " object " + object.name)
+	print("put " + action + " object " + object.name)
 	if object.name == "Lamp":
 		var candle_visible = action == "up"
 		emit_signal("on_candle_visible", candle_visible)
@@ -109,6 +109,7 @@ func _process_walking(delta):
 		move_and_slide(dir * speed * deltaSecs)
 
 		if Input.is_action_pressed("player_create_wall"):
+			print("create wall")
 			var target_position = position
 			var new_wall
 			if facing_direction == "up":

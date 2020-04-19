@@ -14,6 +14,7 @@ func on_wall_spell():
 	find_node("Candle").consume_wall_spell()
 
 func _fwd_candle_die():
+	print("_fwd_candle_die")
 	emit_signal("candle_die")
 
 func _set_hud_main_text(text):

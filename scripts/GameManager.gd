@@ -32,6 +32,7 @@ func _is_about_to_reload_scene():
 
 func _ready():
 	level_reload_timer.connect("timeout", self, "on_level_reload_timeout")
+	hud.connect("candle_die", self, "on_candle_death")
 	on_level_reload_timeout()
 
 func start_level_load_timer():

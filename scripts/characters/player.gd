@@ -16,6 +16,7 @@ var alive = true
 var facing_direction = "right"
 
 signal player_die
+signal cast_wall_spell
 
 
 func on_on_hole():
@@ -114,6 +115,7 @@ func _process_walking(delta):
 				target_position.x += wallDistance
 				new_wall = ver_wall_scene.instance();
 			new_wall.position = target_position
+			emit_signal("cast_wall_spell")
 			get_parent().add_child(new_wall);
 			wallTimer.start();
 

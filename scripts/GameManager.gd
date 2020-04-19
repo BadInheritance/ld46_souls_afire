@@ -19,7 +19,6 @@ func _is_about_to_reload_scene():
 
 func _ready():
 	level_reload_timer.connect("timeout", self, "on_level_reload_timeout")
-	hud.connect("candle_die", self, "on_candle_death")
 	on_level_reload_timeout()
 
 
@@ -55,3 +54,7 @@ func _load_level(level_path):
 	var player_camera: Camera2D = level.get_node("player").find_node("camera")
 	player_camera.current = true
 	hud.on_level_reset()
+
+	var player = level.get_node("player")
+	assert(player != null)
+	player.connect("cast_wall_spell", hud, "on_wall_spell")

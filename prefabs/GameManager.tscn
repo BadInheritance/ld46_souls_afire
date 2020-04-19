@@ -19,4 +19,4 @@ follow_viewport_enable = true
 [node name="HUD layer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUD layer" instance=ExtResource( 2 )]
-[connection signal="candle_die" from="HUD layer/HUD" to="." method="_on_candle_death"]
+[connection signal="candle_die" from="HUD layer/HUD" to="." method="on_candle_death"]

@@ -50,7 +50,13 @@ func on_fountain_activation():
 	if item_picking.is_holding_lamp():
 		emit_signal("activate_fountain")
 
+func process_debug():
+	if Input.is_action_just_pressed("debug_kill_player"):
+		alive = false
+		start_fall_animation()
+
 func _process(_delta):
+	process_debug()
 	# if Input.is_action_just_pressed("player_putdown"):
 	if Input.is_action_just_pressed("player_pickup_toggle"):
 		if item_picking.is_holding_something():

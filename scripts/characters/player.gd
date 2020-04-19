@@ -19,11 +19,10 @@ signal player_die
 
 
 func on_on_hole():
-	if alive:
+	if alive and not is_rolling():
 		scale = Vector2(0.1, 0.1)
 		alive = false
 		emit_signal("player_die")
-
 
 func _process(delta):
 	if Input.is_action_just_pressed("player_putdown"):
@@ -37,15 +36,16 @@ func _process(delta):
 		if item_picking.try_pickup():
 			return
 
+func is_rolling():
+	return not rolling_timer.is_stopped()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	# While the rolling timer is ticking, we're rolling
-	if rolling_timer.is_stopped():
-		_process_walking(delta)
-	else:
+	if is_rolling():
 		_process_rolling(delta)
-
+	else:
+		_process_walking(delta)
 
 var rolling_dir = Vector2.ZERO
 

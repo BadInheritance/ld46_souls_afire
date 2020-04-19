@@ -91,3 +91,4 @@ one_shot = true
 one_shot = true
 
 [node name="Fallable" parent="." instance=ExtResource( 14 )]
+[connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

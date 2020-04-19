@@ -7,6 +7,8 @@ export var locked = false
 onready var sprite = $AnimatedSprite
 onready var door_area = $Area2D
 onready var door_body_shape = $door_body/door_body_shape
+onready var soundOpen = $Sounds/Open
+onready var soundClose = $Sounds/Close
 
 func _is_player_close() -> bool:
 	var areas = door_area.get_overlapping_areas()
@@ -36,8 +38,10 @@ func _close():
 func _toggle():
 	if closed && !locked:
 		_open()
+		soundOpen.play()
 	else:
 		_close()
+		soundClose.play()
 
 func _ready():
 	var key_unlockable = find_node("KeyUnlockable", true, false)

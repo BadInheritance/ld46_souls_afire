@@ -11,5 +11,5 @@ dest_files=[ "res://.import/leave_candle.ogg-43897114a8084ced6495aec11331e9bc.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

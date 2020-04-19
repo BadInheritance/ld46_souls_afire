@@ -5,6 +5,7 @@ const AreaUtils = preload("../AreaUtils.gd")
 signal unlocked
 
 onready var unloackable_area = $Area2D
+onready var unlockSound = $UnlockSound
 
 func _ready():
 	assert(unloackable_area != null && "You have to add a proper Area2D describing the extensions of the unloackable!")
@@ -16,3 +17,4 @@ func _process(_delta):
 		emit_signal('unlocked')
 		node.consume()
 		node.get_parent().remove_child(node)
+		unlockSound.play()

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/pick_candle.ogg-7ad759f82e26963bff5ddab33e3b88ba.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

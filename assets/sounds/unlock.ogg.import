@@ -11,5 +11,5 @@ dest_files=[ "res://.import/unlock.ogg-d25f34b07411ad000f3e5733c4bfe03f.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

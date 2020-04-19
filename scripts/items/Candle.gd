@@ -1,7 +1,10 @@
 extends Node2D
 
-export var shorteningRate = 0.3
-const CANDLE_LENGTH = 20
+export var shorteningTimeoutSeconds = 5
+const candleLength = 20
+
+signal candle_die
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,14 +17,14 @@ onready var extinguished = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	shortening_time += delta
-	if shortening_time > shorteningRate:
+	if shortening_time > shorteningTimeoutSeconds && ! extinguished:
 		#Recognize burnt down candle
-		if wax_region_y >= CANDLE_LENGTH:
-			print_debug("Run out of candle!")
-		
-		#Shorten candle
-		shortening_time = 0
-		wax_region_y += 1
-		$Wax.region_rect = Rect2(0, wax_region_y, 32, 22)
-		$Wax.position.y += 1
-		$Flame.position.y += 1
+		if wax_region_y >= candleLength:
+			emit_signal("candle_die")
+			extinguished = true
+		else:
+			shortening_time = 0
+			wax_region_y += 1
+			$Wax.region_rect = Rect2(0, wax_region_y, 32, 22)
+			$Wax.position.y += 1
+			$Flame.position.y += 1

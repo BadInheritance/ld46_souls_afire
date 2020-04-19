@@ -38,7 +38,7 @@ func _ready():
 		_open()
 	pass
 
-func _process(delta):
+func _process(_delta):
 	var door_action = Input.is_action_just_pressed("player_action")
 	var player_is_close = _is_player_close()
 	if door_action && player_is_close:

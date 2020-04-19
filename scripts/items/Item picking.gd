@@ -51,7 +51,6 @@ func put_down(dest_pos):
 		print('Nothing to put down')
 		return
 
-	var my_parent = get_parent()
 	holding.get_parent().remove_child(holding)
 	emit_signal("object_pick_up_update", "down", holding)
 	# The object to put down is made sibling of the parent

@@ -28,7 +28,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 11.0817, 11.5418 )
+extents = Vector2( 11.0817, 14.925 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 22.7541, 35.9903 )
@@ -53,6 +53,7 @@ position = Vector2( -0.68113, -2.72448 )
 scale = Vector2( 0.851005, 0.9054 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Fallable" parent="enemy" instance=ExtResource( 9 )]
@@ -66,7 +67,11 @@ position = Vector2( -224.237, -222.91 )
 [node name="Area2D" type="Area2D" parent="hole"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hole/Area2D"]
+position = Vector2( 0.568787, -1.1376 )
 shape = SubResource( 3 )
+
+[node name="holetile1_" parent="hole/Area2D/CollisionShape2D" instance=ExtResource( 11 )]
+position = Vector2( -120.886, -57.0165 )
 
 [node name="hole2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 63.1578, -256.439 )

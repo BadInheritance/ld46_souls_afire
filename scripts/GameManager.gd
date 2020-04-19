@@ -12,16 +12,16 @@ var current_level = null
 var current_level_index = 0
 var loading_level = false
 
-var levels = [
-	level_scene_path,
-	level1_path
-]
+var levels = [level_scene_path, level1_path]
+
 
 func get_current_level():
 	return levels[current_level_index]
 
+
 func new_level_available():
 	return current_level_index < len(levels)
+
 
 func on_level_reload_timeout():
 	_load_level(get_current_level())
@@ -30,14 +30,17 @@ func on_level_reload_timeout():
 func _is_about_to_reload_scene():
 	return loading_level
 
+
 func _ready():
 	level_reload_timer.connect("timeout", self, "on_level_reload_timeout")
 	hud.connect("candle_die", self, "on_candle_death")
 	on_level_reload_timeout()
 
+
 func start_level_load_timer():
 	loading_level = true
 	level_reload_timer.start(levelReloadTimeSeconds)
+
 
 func on_level_completed():
 	if new_level_available():
@@ -48,8 +51,9 @@ func on_level_completed():
 		current_level_index = 0
 	start_level_load_timer()
 
+
 func on_player_reached_hatch():
-	if !_is_about_to_reload_scene():
+	if ! _is_about_to_reload_scene():
 		print("on level completed")
 		on_level_completed()
 
@@ -76,11 +80,13 @@ func _connect_end_game_signals(level):
 	player.connect("player_reached_hatch", self, "on_player_reached_hatch")
 	player.connect("on_candle_visible", hud, "_on_set_candle_visible")
 
+
 func _connect_signals(level):
 	_connect_end_game_signals(level)
 	var player = level.get_node("player")
 	assert(player != null)
 	player.connect("cast_wall_spell", hud, "on_wall_spell")
+
 
 func _load_level(level_path):
 	var level_scene = load(level_path)
@@ -89,7 +95,8 @@ func _load_level(level_path):
 	# clear current_level_holder's children
 	for child in current_level_holder.get_children():
 		child.queue_free()
-	current_level_holder.remove_child(current_level)
+	if current_level != null:
+		current_level_holder.remove_child(current_level)
 	current_level = level
 	current_level_holder.add_child(current_level)
 

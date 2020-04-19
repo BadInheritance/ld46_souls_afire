@@ -57,7 +57,6 @@ func process_debug():
 
 func _process(_delta):
 	process_debug()
-	# if Input.is_action_just_pressed("player_putdown"):
 	if Input.is_action_just_pressed("player_pickup_toggle"):
 		if item_picking.is_holding_something():
 			var target_position = self.position
@@ -100,7 +99,7 @@ func _stop_rolling():
 
 func _process_walking(delta):
 	var deltaSecs = delta * 1000.0
-
+	
 	var dirX: float = 0
 	var dirY: float = 0
 	if Input.is_action_pressed("player_up"):
@@ -154,6 +153,23 @@ func _process_walking(delta):
 
 	if dir == Vector2.ZERO:
 		sprite.animation = 'idle'
+		$steps_timer.stop()
 	else:
 		sprite.animation = 'run'
 		sprite.flip_h = (dirX < 0)
+		if Input.is_action_pressed("player_run"):
+			$steps_timer.wait_time = runningStepInterval
+		else:
+			$steps_timer.wait_time = walkingStepInterval
+		if $steps_timer.is_stopped():
+			$steps_timer.start()
+
+export var walkingStepInterval = 0.6
+export var runningStepInterval = 0.3
+
+func generate_step_sound():
+	var scene = preload("res://prefabs/step_sound.tscn")
+	var node = scene.instance()
+	node.global_position = self.global_position
+	node.emitter = self
+	get_parent().add_child(node)

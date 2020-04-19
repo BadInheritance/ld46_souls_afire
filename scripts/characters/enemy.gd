@@ -91,6 +91,11 @@ func _get_next_waypoint(seek_path: PoolVector2Array):
 
 var target_global_pos: Vector2 = Vector2.ZERO
 
+func look_at(target_global: Vector2):
+	$sight_area.rotation = to_local(target_global).angle()
+	current_direction = to_local(target_global).normalized()
+	angle_rotation_progress = 0.0
+	
 func _on_seeking_move(delta):
 	$sight_raycast.cast_to = $sight_raycast.to_local(seek_target.global_position)
 	$sight_raycast.update()
@@ -101,11 +106,11 @@ func _on_seeking_move(delta):
 	else:
 		# Lost sight of the target, but will still seek the point where the
 		# enemy was last seen
-		pass 
+		pass
 	$target_sprite.position = to_local(target_global_pos)
 
 	# Look where we're going (which influences what can be seen...!)
-	$sight_area.rotation = to_local(target_global_pos).angle()
+	look_at(target_global_pos)
 	
 	var seek_path = _find_path(target_global_pos)
 	$Line2D.points = seek_path

@@ -56,7 +56,7 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -109,5 +109,9 @@ shape = SubResource( 4 )
 [node name="Hatchable" parent="." instance=ExtResource( 15 )]
 
 [node name="FountainActivator" parent="." instance=ExtResource( 16 )]
+
+[node name="steps_timer" type="Timer" parent="."]
+wait_time = 0.3
 [connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]
+[connection signal="timeout" from="steps_timer" to="." method="generate_step_sound"]

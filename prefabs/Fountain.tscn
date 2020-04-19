@@ -26,6 +26,7 @@ script = ExtResource( 3 )
 [node name="fountain_body_anim" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "main"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

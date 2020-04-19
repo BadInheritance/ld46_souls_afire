@@ -37,7 +37,8 @@ func on_on_hole():
 		emit_signal("player_die")
 
 func on_fountain_activation():
-	emit_signal("activate_fountain")
+	if item_picking.is_holding_lamp():
+		emit_signal("activate_fountain")
 
 func _process(_delta):
 	# if Input.is_action_just_pressed("player_putdown"):

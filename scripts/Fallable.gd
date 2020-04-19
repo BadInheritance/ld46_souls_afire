@@ -13,7 +13,7 @@ func on_jump_end():
 func _ready():
 	character = get_parent()
 	assert(character.has_method("on_on_hole") && "add a on_on_hole function in parent object")
-	pass 
+	pass
 
 
 func on_on_hole():

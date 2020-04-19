@@ -15,8 +15,6 @@
 [ext_resource path="res://prefabs/DoorOpener.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/Fallable.tscn" type="PackedScene" id=14]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
 animations = [ {
@@ -42,7 +40,7 @@ extents = Vector2( 6.45087, 2.18496 )
 [sub_resource type="CircleShape2D" id=3]
 radius = 20.761
 
-[node name="Node2D" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" groups=[
 "fallable",
 "player",
 ]]
@@ -54,6 +52,7 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -88,4 +87,5 @@ smoothing_enabled = true
 [node name="RollingTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
 [node name="Fallable" parent="." instance=ExtResource( 14 )]

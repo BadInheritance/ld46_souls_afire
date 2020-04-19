@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Lamp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/example_map.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/HorizontalMagicWall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://prefabs/VerticalMagicWall.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,3 +20,9 @@ position = Vector2( 108.3, 111.008 )
 
 [node name="Lamp" parent="." instance=ExtResource( 3 )]
 position = Vector2( 142.889, 111.19 )
+
+[node name="HorizontalWall" parent="." instance=ExtResource( 5 )]
+position = Vector2( 95.2435, 56.5389 )
+
+[node name="VerticalWall" parent="." instance=ExtResource( 6 )]
+position = Vector2( 144.729, 48.007 )

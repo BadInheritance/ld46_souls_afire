@@ -19,6 +19,9 @@ func _add_to_timer(seconds):
 onready var timer = $Timer
 var waxStartLength
 
+func set_candle_visible(visible):
+	self.visible = visible
+
 
 func reset_candle():
 	timer.connect("timeout", self, "_on_timeout")

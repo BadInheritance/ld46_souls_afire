@@ -143,7 +143,6 @@ region_rect = Rect2( 0, 0, 32, 16 )
 [node name="Flame" type="AnimatedSprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 0, 5.04198 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]

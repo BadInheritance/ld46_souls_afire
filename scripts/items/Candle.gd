@@ -4,6 +4,7 @@ export var shorteningTimeoutSeconds = 60
 export var wallSpellCost = 5.0
 
 signal candle_die
+signal candle_time_left(time_left)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -49,6 +50,11 @@ func _on_timeout():
 
 
 func _process(_delta):
+	emit_signal("candle_time_left", timer.time_left)
+
+	if Input.is_action_pressed("debug_pause_candle"):
+		timer.paused = !timer.paused
+
 	if is_burning:
 		var shortened_fraction = (shorteningTimeoutSeconds - timer.time_left) / shorteningTimeoutSeconds
 		if shortened_fraction < 1.0:

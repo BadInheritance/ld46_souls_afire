@@ -23,15 +23,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "hit",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -52,7 +52,6 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -91,4 +90,5 @@ one_shot = true
 one_shot = true
 
 [node name="Fallable" parent="." instance=ExtResource( 14 )]
+[connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

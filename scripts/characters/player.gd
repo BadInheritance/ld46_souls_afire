@@ -17,7 +17,13 @@ var facing_direction = "right"
 
 signal player_die
 signal cast_wall_spell
+signal on_candle_visible(visible)
 
+func _on_object_pick_up_update(action, object):
+	#print("put " + action + " object " + object.name)
+	if object.name == "Lamp":
+		var candle_visible = action == "up"
+		emit_signal("on_candle_visible", candle_visible)
 
 func on_on_hole():
 	if alive and not is_rolling():
@@ -26,16 +32,15 @@ func on_on_hole():
 		emit_signal("player_die")
 
 func _process(delta):
-	if Input.is_action_just_pressed("player_putdown"):
-		var target_position = self.position
-		target_position.x += 15
-		var item = item_picking.put_down(target_position)
-		if item != null:
-			return
+	# if Input.is_action_just_pressed("player_putdown"):
+	if Input.is_action_just_pressed("player_pickup_toggle"):
+		if item_picking.is_holding_something():
+			var target_position = self.position
+			target_position.x += 15
+			var item = item_picking.put_down(target_position)
+		else:
+			item_picking.try_pickup()
 
-	if Input.is_action_just_pressed("player_action"):
-		if item_picking.try_pickup():
-			return
 
 func is_rolling():
 	return not rolling_timer.is_stopped()

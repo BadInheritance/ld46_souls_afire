@@ -33,6 +33,9 @@ func consume_wall_spell():
 onready var timer = $Timer
 var waxStartLength
 
+func set_candle_visible(visible):
+	self.visible = visible
+
 
 func reset_candle():
 	timer.start(shorteningTimeoutSeconds)

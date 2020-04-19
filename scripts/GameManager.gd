@@ -29,6 +29,9 @@ func on_player_death():
 
 
 func on_candle_death():
+	var lamp = current_level.find_node("Lamp", true, false)
+	assert(lamp != null && "make sure there is 'Lamp' in the scene")
+	lamp._on_candle_die()
 	if ! _is_about_to_reload_scene():
 		hud._set_hud_main_text("[center] No! Candle burnt down :( [/center]")
 		level_reload_timer.start(levelReloadTimeSeconds)
@@ -38,6 +41,7 @@ func _connect_end_game_signals(level):
 	var player = level.get_node("player")
 	assert(player != null && "make sure there is a player with name 'player' in the scene")
 	player.connect("player_die", self, "on_player_death")
+	player.connect("on_candle_visible", hud, "_on_set_candle_visible")
 
 
 func _load_level(level_path):

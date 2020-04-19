@@ -32,7 +32,6 @@ func _is_about_to_reload_scene():
 
 func _ready():
 	level_reload_timer.connect("timeout", self, "on_level_reload_timeout")
-	hud.connect("candle_die", self, "on_candle_death")
 	on_level_reload_timeout()
 
 func start_level_load_timer():
@@ -72,11 +71,15 @@ func _connect_end_game_signals(level):
 	player.connect("player_die", self, "on_player_death")
 	player.connect("player_reached_hatch", self, "on_player_reached_hatch")
 
+func _connect_signals(level):
+	_connect_end_game_signals(level)
+	var player = level.get_node("player")
+	assert(player != null)
+	player.connect("cast_wall_spell", hud, "on_wall_spell")
 
 func _load_level(level_path):
 	var level_scene = load(level_path)
 	var level = level_scene.instance()
-	_connect_end_game_signals(level)
 
 	# clear current_level_holder's children
 	for child in current_level_holder.get_children():
@@ -85,6 +88,7 @@ func _load_level(level_path):
 	current_level = level
 	current_level_holder.add_child(current_level)
 
+	_connect_signals(level)
 	var player_camera: Camera2D = level.get_node("player").find_node("camera")
 	player_camera.current = true
 	hud.on_level_reset()

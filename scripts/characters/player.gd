@@ -17,6 +17,7 @@ var facing_direction = "right"
 
 signal player_die
 signal player_reached_hatch
+signal cast_wall_spell
 
 func on_on_hatch():
 	emit_signal("player_reached_hatch")
@@ -117,6 +118,7 @@ func _process_walking(delta):
 				target_position.x += wallDistance
 				new_wall = ver_wall_scene.instance();
 			new_wall.position = target_position
+			emit_signal("cast_wall_spell")
 			get_parent().add_child(new_wall);
 			wallTimer.start();
 

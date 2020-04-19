@@ -125,6 +125,7 @@ rect_min_size = Vector2( 100, 130 )
 position = Vector2( 50, 50 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 6 )
+shorteningTimeoutSeconds = 10.0
 
 [node name="Base" type="Sprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
 texture = ExtResource( 1 )
@@ -143,7 +144,6 @@ region_rect = Rect2( 0, 0, 32, 16 )
 [node name="Flame" type="AnimatedSprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 0, 5.04198 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]

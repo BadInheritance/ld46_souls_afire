@@ -52,7 +52,7 @@ func _update_animation(direction):
     if direction == Vector2.ZERO:
         sprite.animation = 'idle'
     else:
-        sprite.animation = 'idle'
+        sprite.animation = 'run'
         sprite.flip_h = (direction.x < 0)
 
 

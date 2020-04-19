@@ -2,6 +2,8 @@ extends Node
 
 
 var closed = true
+export var locked = false
+
 onready var sprite = $AnimatedSprite
 onready var door_area = $Area2D
 onready var door_body_shape = $door_body/door_body_shape
@@ -14,6 +16,12 @@ func _is_player_close() -> bool:
 			return true
 	return false
 
+func _lock():
+	locked = true
+
+func _unlock():
+	print("door unlocked")
+	locked = false
 
 func _open():
 	sprite.animation = 'open'
@@ -26,12 +34,17 @@ func _close():
 	closed = true
 
 func _toggle():
-	if closed:
+	if closed && !locked:
 		_open()
 	else:
 		_close()
 
 func _ready():
+	var key_unlockable = find_node("KeyUnlockable", true, false)
+	print("key unlockable" + str(key_unlockable))
+	if(key_unlockable != null):
+		key_unlockable.connect("unlocked", self, "_unlock")
+
 	if closed:
 		_close()
 	else:

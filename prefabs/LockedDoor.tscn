@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/tilemap/doors_leaf_closed.png" type="Texture" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/doors_leaf_open.png" type="Texture" id=2]
 [ext_resource path="res://scripts/items/Door.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/KeyUnlockable.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -25,6 +26,7 @@ extents = Vector2( 1.31616, 102.38 )
 
 [node name="door" type="Node2D"]
 script = ExtResource( 3 )
+locked = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -42,3 +44,5 @@ shape = SubResource( 2 )
 rotation = 3.14159
 scale = Vector2( 11.8868, -0.155011 )
 shape = SubResource( 3 )
+
+[node name="KeyUnlockable" parent="." instance=ExtResource( 4 )]

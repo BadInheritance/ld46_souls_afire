@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/candle_02.ogg-862fa928332fda93dbbab5f703275d12.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/candle_02.ogg"
+dest_files=[ "res://.import/candle_02.ogg-862fa928332fda93dbbab5f703275d12.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

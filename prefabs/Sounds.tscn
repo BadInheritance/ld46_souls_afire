@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sounds/roll.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/sounds/pick_candle.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/leave_candle.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/foostep.ogg" type="AudioStream" id=4]
+
+[node name="Sounds" type="Node2D"]
+
+[node name="PlayerSounds" type="Node2D" parent="."]
+
+[node name="SoundTimer" type="Timer" parent="PlayerSounds"]
+one_shot = true
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+stream = ExtResource( 4 )
+
+[node name="Roll" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+stream = ExtResource( 1 )
+
+[node name="PickCandle" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+stream = ExtResource( 2 )
+
+[node name="DropCandle" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+stream = ExtResource( 3 )
+volume_db = -15.0
+pitch_scale = 0.83

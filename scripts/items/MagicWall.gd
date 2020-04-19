@@ -35,6 +35,7 @@ func _process(delta):
 	if not is_wall_up:
 		elapsed_time += delta
 		if elapsed_time >= growthRate:
+			$RaiseWall.play()
 			elapsed_time = 0
 			current_wall_height += 1
 			$WallSprite.region_rect = Rect2(region_x, region_y, region_w, current_wall_height)
@@ -43,17 +44,21 @@ func _process(delta):
 				self.position.x = starting_position.x
 				is_wall_up = true
 	else:
+		$RaiseWall.stop()
 		wall_timer += delta
 		if wall_timer >= wallDuration-1.5 and wall_timer <= wallDuration-1:
+			$RaiseWall.play()
 			self.position.x = starting_position.x + rng.randfn(0.0, 0.6)
 		elif wall_timer >= wallDuration-1 and wall_timer <= wallDuration:
 			self.position.x = starting_position.x
 		elif wall_timer >= wallDuration:
 			elapsed_time += delta
 			if elapsed_time >= growthRate:
+				$CollapseWall.play()
 				elapsed_time = 0
 				current_wall_height -= 1
 				$WallSprite.region_rect = Rect2(region_x, region_y, region_w, current_wall_height)
 				self.position.x = starting_position.x + rng.randfn(0.0, 0.6)
 				if current_wall_height == 0:
+					$CollapseWall.stop()
 					self.remove_and_skip()

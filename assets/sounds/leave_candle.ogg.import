@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/leave_candle.ogg-43897114a8084ced6495aec11331e9bc.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/leave_candle.ogg"
+dest_files=[ "res://.import/leave_candle.ogg-43897114a8084ced6495aec11331e9bc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

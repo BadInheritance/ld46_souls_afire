@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roll.ogg-f1fccd148ad06b1aecb0009ef6a8e861.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/roll.ogg"
+dest_files=[ "res://.import/roll.ogg-f1fccd148ad06b1aecb0009ef6a8e861.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

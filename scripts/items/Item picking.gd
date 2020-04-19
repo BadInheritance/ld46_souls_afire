@@ -8,6 +8,9 @@ func _ready():
 
 onready var picking_area = $Area2D
 onready var slot = $"Item slot"
+onready var pickCandleSounds = $"../PlayerSounds/PickCandle"
+onready var dropCandleSounds = $"../PlayerSounds/DropCandle"
+onready var pickObjectSounds = $"../PlayerSounds/PickObject"
 
 var holding = null
 
@@ -39,6 +42,10 @@ func try_pickup():
 		return
 
 	emit_signal("object_pick_up_update", "up", to_pick_up)
+	if to_pick_up.name == "Lamp":
+		pickCandleSounds.play()
+	else:
+		pickObjectSounds.play()
 	to_pick_up.get_parent().remove_child(to_pick_up)
 	slot.add_child(to_pick_up)
 	to_pick_up.position = Vector2.ZERO
@@ -61,6 +68,7 @@ func put_down(dest_pos):
 	# The object to put down is made sibling of the parent
 	get_parent().get_parent().add_child(holding)
 	holding.position = dest_pos
+	dropCandleSounds.play()
 
 	var ret = holding
 	holding = null

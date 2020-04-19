@@ -5,11 +5,20 @@ export var runningSpeed = 15
 export var snagSpeed    = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
+export var normalPlayerVolumeDb = -20
 
-onready var sprite = $AnimatedSprite
+onready var sprite = $PlayerSprite
 onready var item_picking = $"Item picking"
 onready var rolling_timer = $RollingTimer
 onready var wallTimer = $WallTimer
+onready var soundTimer = $PlayerSounds/SoundTimer
+onready var walkingSound = $PlayerSounds/Footstep
+onready var walkingTimer = 1.0 / walkingSpeed
+onready var runningSound = $PlayerSounds/Footstep
+onready var runningTimer = 1.0 / runningSpeed
+onready var rollSound = $PlayerSounds/Roll
+onready var activeSoundTimer = walkingTimer
+onready var activeSound = walkingSound
 onready var hor_wall_scene = preload("res://prefabs/HorizontalMagicWall.tscn")
 onready var ver_wall_scene = preload("res://prefabs/VerticalMagicWall.tscn")
 
@@ -21,6 +30,10 @@ signal player_reached_hatch(with_lamp)
 signal cast_wall_spell
 signal activate_fountain
 signal on_candle_visible(visible)
+
+func _ready():
+	walkingSound.volume_db = normalPlayerVolumeDb 
+	rollSound.volume_db = normalPlayerVolumeDb
 
 func on_on_hatch():
 	emit_signal("player_reached_hatch", item_picking.is_holding_lamp() )
@@ -84,6 +97,8 @@ func _start_rolling(dir):
 	sprite.animation = 'idle'
 	sprite.playing = false
 	rolling_dir = dir
+	activeSound.stop()
+	rollSound.play()
 	rolling_timer.start()
 
 
@@ -125,8 +140,13 @@ func _process_walking(delta):
 				return
 
 		var speed = walkingSpeed
+		activeSoundTimer = walkingTimer
+		activeSound = walkingSound
 		if Input.is_action_pressed("player_run"):
 			speed = runningSpeed
+			activeSoundTimer = runningTimer
+			activeSound = runningSound
+
 		if Input.is_action_pressed("player_snag"):
 			speed = snagSpeed
 		var _i = move_and_slide(dir * speed * deltaSecs)
@@ -157,3 +177,6 @@ func _process_walking(delta):
 	else:
 		sprite.animation = 'run'
 		sprite.flip_h = (dirX < 0)
+		if soundTimer.is_stopped():
+			activeSound.play()
+			soundTimer.start(activeSoundTimer)

@@ -10,4 +10,7 @@ func _ready():
 
 func on_fountain_activation():
 	print('on_fountain_activation')
+	$FountainDrop1.play()
+	yield($FountainDrop1, "finished") 
+	$FountainDrop2.play()
 	character.on_fountain_activation()

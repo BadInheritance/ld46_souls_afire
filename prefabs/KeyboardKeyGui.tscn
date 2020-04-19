@@ -11,12 +11,42 @@ animations = [ {
 } ]
 
 [node name="KeyboardKeyGui" type="Control"]
-rect_min_size = Vector2( 30, 30 )
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+margin_left = 4.0
+margin_right = 44.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HBoxContainer/Control2"]
+position = Vector2( -4, 0 )
 frames = SubResource( 1 )
-animation = "pressed"
+centered = false
+offset = Vector2( 10, 0 )
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+margin_left = 48.0
+margin_right = 48.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

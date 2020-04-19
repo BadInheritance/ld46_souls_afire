@@ -4,15 +4,18 @@ export(Resource) var animatedSprite = null
 # export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/player_and_enemy.tscn"
 export(int) var scancode = 0
 
+var sprite = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite.frames = animatedSprite
+	sprite = find_node("AnimatedSprite")
+	sprite.frames = animatedSprite
 	pass # Replace with function body.
 
 
 func _process(delta):
 	if Input.is_key_pressed(scancode):
-		$AnimatedSprite.animation = 'pressed'
+		sprite.animation = 'pressed'
 	else:
-		$AnimatedSprite.animation = 'unpressed'
+		sprite.animation = 'unpressed'
 	pass

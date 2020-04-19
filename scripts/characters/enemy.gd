@@ -15,14 +15,16 @@ onready var sprite = $AnimatedSprite
 var last_random_update_time_ms = 0
 var current_direction = Vector2(0, 0)
 onready var starting_position = position
+var alive = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if currentState == ENEMY_STATE.IDLE_MOVE:
-		_on_idle_move(delta)
-	elif currentState == ENEMY_STATE.SEEKING:
-		_on_seeking_move(delta)
+	if alive:
+		if currentState == ENEMY_STATE.IDLE_MOVE:
+			_on_idle_move(delta)
+		elif currentState == ENEMY_STATE.SEEKING:
+			_on_seeking_move(delta)
 
 
 var angle_rotation_progress = 0.0
@@ -35,7 +37,8 @@ func _on_idle_move(delta):
 
 	var collider = $sight_raycast.get_collider()
 	if collider != null:
-		print('Seeing:', collider)
+		#print('Seeing:', collider)
+		pass
 	if collider is Area2D and collider.is_in_group("player"):
 		switch_to_seeking(collider)
 		return
@@ -84,7 +87,7 @@ func _on_seeking_move(delta):
 		var next_waypoint = _get_next_waypoint(seek_path)
 		$Sprite.position = next_waypoint
 		if next_waypoint == Vector2.ZERO:
-			print('Nowhere to walk!')
+			#print('Nowhere to walk!')
 			break
 
 		# next_waypoint is in local coordintes => its length is the distance from the character
@@ -105,13 +108,16 @@ func _update_animation(direction):
 		sprite.flip_h = (direction.x < 0)
 
 
-var alive = true
-
+func _die():
+	pass
 
 func on_on_hole():
 	if alive:
-		scale = Vector2(0.1, 0.1)
 		alive = false
+		var fall_animation_prefab = load("res://prefabs/FallAnimation.tscn")
+		var fall_animation = fall_animation_prefab.instance()
+		fall_animation.connect("fall_animation_completed", self, "_die")
+		add_child(fall_animation)
 
 
 func _on_change_direction_timer_timeout():

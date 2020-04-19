@@ -56,7 +56,7 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 0, -14 )
 

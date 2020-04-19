@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilemap/main_tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://prefabs/enemy1.tscn" type="PackedScene" id=2]
@@ -7,9 +7,7 @@
 [ext_resource path="res://prefabs/Hole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/Hatch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://prefabs/HoleTile1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://prefabs/VerticalMagicWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Lamp.tscn" type="PackedScene" id=13]
-[ext_resource path="res://prefabs/HorizontalMagicWall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://prefabs/HoleTile2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://prefabs/LockedDoor.tscn" type="PackedScene" id=16]
 [ext_resource path="res://prefabs/Key.tscn" type="PackedScene" id=17]
@@ -66,12 +64,6 @@ position = Vector2( -0.0817108, 35.2191 )
 [node name="Lamp" parent="Navigation2D" instance=ExtResource( 13 )]
 position = Vector2( 34.5073, 35.4011 )
 
-[node name="HorizontalWall" parent="Navigation2D" instance=ExtResource( 14 )]
-position = Vector2( -13.1382, -19.25 )
-
-[node name="VerticalWall" parent="Navigation2D" instance=ExtResource( 12 )]
-position = Vector2( 36.3473, -27.7819 )
-
 [node name="holetile1_" parent="Navigation2D" instance=ExtResource( 11 )]
 position = Vector2( -471.504, 8.50574 )
 
@@ -124,6 +116,9 @@ position = Vector2( -270.952, -30.5173 )
 
 [node name="enemy2" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( -318.274, -289.78 )
+
+[node name="Fountain2" parent="Navigation2D" instance=ExtResource( 18 )]
+position = Vector2( -255.961, -64.2748 )
 
 [node name="enemy" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( -70.6627, -227.877 )

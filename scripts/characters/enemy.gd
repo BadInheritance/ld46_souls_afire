@@ -7,6 +7,7 @@ export var directionChangeProbability = 0.8
 export var maxDistanceFromStartingPosition = 50
 export var currentState = ENEMY_STATE.IDLE_MOVE
 export var sightDistance = 50.0
+export var waypoint_noise_std = 3
 
 onready var navigation = find_parent("Navigation2D")
 onready var tilemap = navigation.get_node("TileMap")
@@ -16,7 +17,7 @@ var last_random_update_time_ms = 0
 var current_direction = Vector2(0, 0)
 onready var starting_position = position
 var alive = true
-
+var rng = RandomNumberGenerator.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -76,7 +77,10 @@ func _find_path(global_pos: Vector2):
 	for point in points:
 		# nav wayponits are snapped to each tile's center
 		var snapped_point = tilemap.map_to_world(tilemap.world_to_map(tilemap.to_local(point)))
-		local_path.append(to_local(snapped_point * 0.5 + point * 0.5))
+
+		var waypoint_noise = Vector2(rng.randfn(0, waypoint_noise_std), rng.randfn(0, waypoint_noise_std))
+
+		local_path.append(waypoint_noise + to_local(snapped_point * 0.5 + point * 0.5))
 	return local_path
 
 
@@ -139,6 +143,7 @@ func _update_animation(direction):
 
 func _die():
 	pass
+
 
 func on_on_hole():
 	if alive:

@@ -22,6 +22,9 @@ func get_object_to_pickup() -> Node2D:
 			return parent.get_parent()
 	return null
 
+func is_holding_lamp():
+	return is_holding_something() && holding.name == "Lamp"
+
 func is_holding_something():
 	return holding != null
 
@@ -48,7 +51,6 @@ func put_down(dest_pos):
 		print('Nothing to put down')
 		return
 
-	var my_parent = get_parent()
 	holding.get_parent().remove_child(holding)
 	emit_signal("object_pick_up_update", "down", holding)
 	# The object to put down is made sibling of the parent

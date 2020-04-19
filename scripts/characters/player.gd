@@ -24,7 +24,7 @@ func on_on_hatch():
 	emit_signal("player_reached_hatch")
 
 func _on_object_pick_up_update(action, object):
-	#print("put " + action + " object " + object.name)
+	print("put " + action + " object " + object.name)
 	if object.name == "Lamp":
 		var candle_visible = action == "up"
 		emit_signal("on_candle_visible", candle_visible)
@@ -35,13 +35,13 @@ func on_on_hole():
 		alive = false
 		emit_signal("player_die")
 
-func _process(delta):
+func _process(_delta):
 	# if Input.is_action_just_pressed("player_putdown"):
 	if Input.is_action_just_pressed("player_pickup_toggle"):
 		if item_picking.is_holding_something():
 			var target_position = self.position
 			target_position.x += 15
-			var item = item_picking.put_down(target_position)
+			var _i = item_picking.put_down(target_position)
 		else:
 			item_picking.try_pickup()
 
@@ -69,7 +69,7 @@ func _start_rolling(dir):
 
 func _process_rolling(delta):
 	rotate(2 * PI / rolling_timer.wait_time * delta)
-	move_and_slide(rolling_dir * rollingSpeed * delta * 1000.0)
+	var _i = move_and_slide(rolling_dir * rollingSpeed * delta * 1000.0)
 
 
 func _stop_rolling():
@@ -100,15 +100,17 @@ func _process_walking(delta):
 
 	if wallTimer.is_stopped():
 		if dir != Vector2.ZERO and Input.is_action_just_pressed('player_roll'):
-			_start_rolling(dir)
-			return
+			if ! item_picking.is_holding_lamp():
+				_start_rolling(dir)
+				return
 
 		var speed = walkingSpeed
 		if Input.is_action_pressed("player_run"):
 			speed = runningSpeed
-		move_and_slide(dir * speed * deltaSecs)
+		var _i = move_and_slide(dir * speed * deltaSecs)
 
 		if Input.is_action_pressed("player_create_wall"):
+			print("create wall")
 			var target_position = position
 			var new_wall
 			if facing_direction == "up":

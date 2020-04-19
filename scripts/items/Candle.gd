@@ -1,6 +1,6 @@
 extends Node2D
 
-export var shorteningTimeoutSeconds = 60.0
+export var shorteningTimeoutSeconds = 60
 export var wallSpellCost = 5.0
 
 signal candle_die
@@ -48,8 +48,7 @@ func _on_timeout():
 	emit_signal("candle_die")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_burning:
 		var shortened_fraction = (shorteningTimeoutSeconds - timer.time_left) / shorteningTimeoutSeconds
 		if shortened_fraction < 1.0:

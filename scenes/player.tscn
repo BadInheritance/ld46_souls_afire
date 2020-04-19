@@ -93,6 +93,5 @@ one_shot = true
 [node name="Fallable" parent="." instance=ExtResource( 14 )]
 
 [node name="Hatchable" parent="." instance=ExtResource( 15 )]
-
 [connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

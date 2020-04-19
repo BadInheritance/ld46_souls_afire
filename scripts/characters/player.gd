@@ -18,6 +18,7 @@ var facing_direction = "right"
 signal player_die
 signal player_reached_hatch
 signal cast_wall_spell
+signal activate_fountain
 signal on_candle_visible(visible)
 
 func on_on_hatch():
@@ -34,6 +35,9 @@ func on_on_hole():
 		scale = Vector2(0.1, 0.1)
 		alive = false
 		emit_signal("player_die")
+		
+func on_fountain_activation():
+	emit_signal("activate_fountain")
 
 func _process(delta):
 	# if Input.is_action_just_pressed("player_putdown"):

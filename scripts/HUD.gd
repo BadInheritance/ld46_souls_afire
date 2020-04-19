@@ -12,6 +12,9 @@ func _on_set_candle_visible(visible):
 
 func on_wall_spell():
 	find_node("Candle").consume_wall_spell()
+	
+func on_fountain_activation():
+	find_node("Candle").reset_candle()
 
 func _fwd_candle_die():
 	emit_signal("candle_die")

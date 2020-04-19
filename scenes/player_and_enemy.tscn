@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://tilemap/main_tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/big_demon_idle_anim_f2.png" type="Texture" id=2]
@@ -11,10 +11,9 @@
 [ext_resource path="res://prefabs/Fallable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://prefabs/Hatch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://prefabs/HoleTile1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://prefabs/VerticalMagicWall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Lamp.tscn" type="PackedScene" id=13]
-[ext_resource path="res://prefabs/HorizontalMagicWall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://prefabs/HoleTile2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://prefabs/Fountain.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.7444, 14.3396 )
@@ -53,7 +52,6 @@ position = Vector2( -0.68113, -2.72448 )
 scale = Vector2( 0.851005, 0.9054 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="Fallable" parent="enemy" instance=ExtResource( 9 )]
@@ -82,12 +80,6 @@ position = Vector2( -0.0817108, 35.2191 )
 
 [node name="Lamp" parent="." instance=ExtResource( 13 )]
 position = Vector2( 34.5073, 35.4011 )
-
-[node name="HorizontalWall" parent="." instance=ExtResource( 14 )]
-position = Vector2( -13.1382, -19.25 )
-
-[node name="VerticalWall" parent="." instance=ExtResource( 12 )]
-position = Vector2( 36.3473, -27.7819 )
 
 [node name="hole3" parent="." instance=ExtResource( 8 )]
 position = Vector2( -392.595, -88.0258 )
@@ -127,3 +119,6 @@ position = Vector2( -45.4532, -276.999 )
 
 [node name="holetile2_" parent="." instance=ExtResource( 15 )]
 position = Vector2( -639.542, -32.3944 )
+
+[node name="Node2D" parent="." instance=ExtResource( 16 )]
+position = Vector2( -41.8921, -72.7615 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall_bottom.png-e3596192c8cfa5ebf78a7067a80a6f51.stex"
+path="res://.import/wall_fountain_basin_wax_anim_f0.png-4a500ecb2e27b838794916d323bdac42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/wall_bottom.png"
-dest_files=[ "res://.import/wall_bottom.png-e3596192c8cfa5ebf78a7067a80a6f51.stex" ]
+source_file="res://assets/tilemap/wall_fountain_basin_wax_anim_f0.png"
+dest_files=[ "res://.import/wall_fountain_basin_wax_anim_f0.png-4a500ecb2e27b838794916d323bdac42.stex" ]
 
 [params]
 

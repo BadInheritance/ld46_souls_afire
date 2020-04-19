@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/wizzard_f_idle_anim_f2.png" type="Texture" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/wizzard_f_idle_anim_f0.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://prefabs/DoorOpener.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/Fallable.tscn" type="PackedScene" id=14]
 [ext_resource path="res://prefabs/Hatchable.tscn" type="PackedScene" id=15]
+[ext_resource path="res://prefabs/FountainActivator.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
@@ -94,5 +95,6 @@ one_shot = true
 
 [node name="Hatchable" parent="." instance=ExtResource( 15 )]
 
+[node name="FountainActivator" parent="." instance=ExtResource( 16 )]
 [connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]

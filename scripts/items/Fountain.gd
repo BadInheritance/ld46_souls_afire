@@ -9,7 +9,7 @@ func _ready():
 	assert(fountain_area != null && "You have to add a proper Area2D describing the extensions of the fountain!")
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("player_action"):
 		var nodes = AreaUtils.get_nodes_of_group_in_area(fountain_area, "fountain_activator")
 		for node in nodes:

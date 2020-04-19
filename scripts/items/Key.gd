@@ -8,5 +8,5 @@ func _ready():
 func consume():
 	emit_signal("destroyed")
 
-func _process(delta):
+func _process(_delta):
 	pass

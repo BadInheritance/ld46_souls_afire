@@ -6,6 +6,8 @@ func on_level_reset():
 	_set_hud_main_text("")
 	find_node("Candle").reset_candle()
 
+func on_wall_spell():
+	find_node("Candle").consume_wall_spell()
 
 func _fwd_candle_die():
 	emit_signal("candle_die")

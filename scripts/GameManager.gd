@@ -87,6 +87,7 @@ func _connect_signals(level):
 	var player = level.get_node("player")
 	assert(player != null)
 	player.connect("cast_wall_spell", hud, "on_wall_spell")
+	player.connect("activate_fountain", hud, "on_fountain_activation")
 
 
 func _load_level(level_path):

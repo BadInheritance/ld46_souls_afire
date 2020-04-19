@@ -10,6 +10,8 @@ func on_level_reset():
 func _on_set_candle_visible(visible):
 	find_node("Candle").set_candle_visible(visible)
 
+func on_wall_spell():
+	find_node("Candle").consume_wall_spell()
 
 func _fwd_candle_die():
 	emit_signal("candle_die")

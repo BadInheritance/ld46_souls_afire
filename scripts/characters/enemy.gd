@@ -29,20 +29,29 @@ func _physics_process(delta):
 
 var angle_rotation_progress = 0.0
 
+var seek_target: Node2D = null
 
+
+func switch_to_idle():
+	seek_target = null
+	currentState = ENEMY_STATE.IDLE_MOVE
+
+func _get_seen_candle():
+	var seen = $sight_area.get_overlapping_areas()
+	for area in seen:
+		if area.is_in_group("candle"):
+			return area
+	
 func _on_idle_move(delta):
-	angle_rotation_progress += 2 * PI * delta
+	angle_rotation_progress += 2 * PI * delta * 0.3
 	var angle_delta = sin(angle_rotation_progress) * PI / 3
-	$sight_raycast.cast_to = current_direction.rotated(angle_delta) * sightDistance
-
-	var collider = $sight_raycast.get_collider()
-	if collider != null:
-		#print('Seeing:', collider)
-		pass
-	if collider is Area2D and collider.is_in_group("player"):
-		switch_to_seeking(collider)
+	$sight_area.rotation = current_direction.angle() + angle_delta
+	
+	var target = _get_seen_candle()
+	if target != null:
+		switch_to_seeking(target)
 		return
-
+	
 	_walk_towards(current_direction, delta)
 
 
@@ -51,18 +60,15 @@ func _walk_towards(dir, deltaTime):
 	_update_animation(dir)
 
 
-var seek_target: Node2D = null
-
-
 func switch_to_seeking(target):
 	seek_target = target
 	currentState = ENEMY_STATE.SEEKING
 
 
-func _find_path():
+func _find_path(global_pos: Vector2):
 	# all pathfinding happens in Navigation2D's frame of reference.
 	var me_world = navigation.to_local(get_global_position())
-	var target_world = navigation.to_local(seek_target.global_position)
+	var target_world = navigation.to_local(global_pos)
 	var points = navigation.get_simple_path(me_world, target_world)
 
 	# the returned points are in the local frame of reference
@@ -74,22 +80,45 @@ func _find_path():
 	return local_path
 
 
-func _get_next_waypoint(seek_path: PoolVector2Array) -> Vector2:
+func _get_next_waypoint(seek_path: PoolVector2Array):
 	if seek_path.size() < 2:
-		return Vector2.ZERO
+		return null
 	return seek_path[1]
 
 
+var target_global_pos: Vector2 = Vector2.ZERO
+
 func _on_seeking_move(delta):
-	var seek_path = _find_path()
+	$sight_raycast.cast_to = $sight_raycast.to_local(seek_target.global_position)
+	$sight_raycast.update()
+	var collider = $sight_raycast.get_collider()
+	if collider == seek_target:
+		# Target visible. Seek actively.
+		target_global_pos = seek_target.global_position
+	else:
+		# Lost sight of the target, but will still seek the point where the
+		# enemy was last seen
+		pass 
+	$target_sprite.position = to_local(target_global_pos)
+
+	# Look where we're going (which influences what can be seen...!)
+	$sight_area.rotation = to_local(target_global_pos).angle()
+	
+	var seek_path = _find_path(target_global_pos)
 	$Line2D.points = seek_path
 	while true:
 		var next_waypoint = _get_next_waypoint(seek_path)
-		$Sprite.position = next_waypoint
-		if next_waypoint == Vector2.ZERO:
-			#print('Nowhere to walk!')
+		if next_waypoint == null:
+			# Path exhausted; no where else to walk.  Lost sight of the enemy,
+			# definitively.
+			print('Nowhere to walk!')
+			$waypoint_sprite.visible = false
+			switch_to_idle()
 			break
-
+		else:
+			$waypoint_sprite.visible = true
+			$waypoint_sprite.position = next_waypoint
+		
 		# next_waypoint is in local coordintes => its length is the distance from the character
 		if next_waypoint.length() < 3.0:
 			# Waypoint reached

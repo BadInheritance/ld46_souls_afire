@@ -15,14 +15,14 @@ func _ready():
 func _set_hud_main_text(text):
 	var main_text = current_level.find_node("hud_main_text")
 	main_text.visible = true;
-	main_text.text = text
+	main_text.bbcode_text = text
 
 func on_player_death():
-	_set_hud_main_text("You Died :(")
+	_set_hud_main_text("[center] You Died :( [/center]")
 	level_reload_timer.start(levelReloadTimeSeconds)
 
 func on_candle_death():
-	_set_hud_main_text("No! Candle burnt down :(")
+	_set_hud_main_text("[center] No! Candle burnt down :( [/center]")
 	level_reload_timer.start(levelReloadTimeSeconds)
 
 func _connect_end_game_signals(level):

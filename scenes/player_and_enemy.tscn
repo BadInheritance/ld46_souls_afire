@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilemap/main_tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/big_demon_idle_anim_f2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://prefabs/Hole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/Fallable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Lamp.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.7444, 14.3396 )
@@ -80,3 +81,6 @@ shape = SubResource( 3 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
 
 [node name="player" parent="." instance=ExtResource( 6 )]
+
+[node name="Lamp" parent="." instance=ExtResource( 11 )]
+position = Vector2( 56.3365, -23.3269 )

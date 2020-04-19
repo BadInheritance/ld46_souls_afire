@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var walkingSpeed = 5
 export var runningSpeed = 15
+export var snagSpeed    = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
 
@@ -120,9 +121,11 @@ func _process_walking(delta):
 		var speed = walkingSpeed
 		if Input.is_action_pressed("player_run"):
 			speed = runningSpeed
+		if Input.is_action_pressed("player_snag"):
+			speed = snagSpeed
 		var _i = move_and_slide(dir * speed * deltaSecs)
 
-		if Input.is_action_pressed("player_create_wall"):
+		if Input.is_action_pressed("player_create_wall") && item_picking.is_holding_lamp():
 			print("create wall")
 			var target_position = position
 			var new_wall

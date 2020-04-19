@@ -16,12 +16,12 @@ var alive = true
 var facing_direction = "right"
 
 signal player_die
-signal player_reached_hatch
+signal player_reached_hatch(with_lamp)
 signal cast_wall_spell
 signal on_candle_visible(visible)
 
 func on_on_hatch():
-	emit_signal("player_reached_hatch")
+	emit_signal("player_reached_hatch", item_picking.is_holding_lamp() )
 
 func _on_object_pick_up_update(action, object):
 	print("put " + action + " object " + object.name)

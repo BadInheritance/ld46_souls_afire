@@ -14,4 +14,5 @@ func _process(_delta):
 	for node in nodes:
 		print("emit unlocked")
 		emit_signal('unlocked')
+		node.consume()
 		node.get_parent().remove_child(node)

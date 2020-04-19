@@ -35,10 +35,10 @@ tile_data = PoolIntArray( -1507362, 536870924, 0, -1507361, 536870924, 0, -15073
 position = Vector2( -391.899, -152.798 )
 
 [node name="holetile1_2" parent="Navigation2D/TileMap" instance=ExtResource( 11 )]
-position = Vector2( -376.143, -136.411 )
+position = Vector2( -374.202, -135.764 )
 
 [node name="holetile1_3" parent="Navigation2D/TileMap" instance=ExtResource( 11 )]
-position = Vector2( -408.102, -119.824 )
+position = Vector2( -408.749, -119.177 )
 
 [node name="holetile1_4" parent="Navigation2D/TileMap" instance=ExtResource( 11 )]
 position = Vector2( -392.08, -104.303 )
@@ -115,6 +115,15 @@ position = Vector2( -248.867, 70.3543 )
 
 [node name="Fountain" parent="Navigation2D" instance=ExtResource( 18 )]
 position = Vector2( -52.6835, -77.7708 )
+
+[node name="enemy4" parent="Navigation2D" instance=ExtResource( 2 )]
+position = Vector2( -900.062, -70.6678 )
+
+[node name="enemy3" parent="Navigation2D" instance=ExtResource( 2 )]
+position = Vector2( -270.952, -30.5173 )
+
+[node name="enemy2" parent="Navigation2D" instance=ExtResource( 2 )]
+position = Vector2( -318.274, -289.78 )
 
 [node name="enemy" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( -70.6627, -227.877 )

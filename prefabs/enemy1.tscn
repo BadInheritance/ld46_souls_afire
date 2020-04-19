@@ -11,7 +11,7 @@
 [ext_resource path="res://scripts/characters/enemy.gd" type="Script" id=9]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/big_demon_run_anim_f0.png" type="Texture" id=10]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/big_demon_idle_anim_f3.png" type="Texture" id=11]
-[ext_resource path="res://scripts/line_follower.gd" type="Script" id=12]
+[ext_resource path="res://assets/2dpixeldungeonpack/2D Pixel Dungeon Asset Pack/interface/arrow_3.png" type="Texture" id=12]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/coin_anim_f3.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -32,7 +32,8 @@ animations = [ {
 
 [node name="enemy" type="KinematicBody2D"]
 script = ExtResource( 9 )
-maxDistanceFromStartingPosition = 500
+walkingSpeed = 2.0
+maxDistanceFromStartingPosition = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -49,6 +50,7 @@ playing = true
 
 [node name="sight_raycast" type="RayCast2D" parent="."]
 enabled = true
+collision_mask = 6
 collide_with_areas = true
 
 [node name="raycast viewer" type="Line2D" parent="sight_raycast"]
@@ -60,11 +62,22 @@ script = ExtResource( 2 )
 [node name="change_direction_timer" type="Timer" parent="."]
 autostart = true
 
-[node name="line_follower" type="Node2D" parent="."]
-script = ExtResource( 12 )
-
 [node name="Line2D" type="Line2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="waypoint_sprite" type="Sprite" parent="."]
 texture = ExtResource( 13 )
+
+[node name="target_sprite" type="Sprite" parent="."]
+texture = ExtResource( 12 )
+
+[node name="sight_area" type="Area2D" parent="."]
+monitorable = false
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sight_area"]
+polygon = PoolVector2Array( 0, 0, 128, 56, 152, 0, 128, -56 )
+
+[node name="Polygon2D" type="Polygon2D" parent="sight_area/CollisionPolygon2D"]
+color = Color( 1, 0.992157, 0.545098, 0.317647 )
+polygon = PoolVector2Array( 0, 0, 128, -56, 152, 0, 128, 56 )
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]

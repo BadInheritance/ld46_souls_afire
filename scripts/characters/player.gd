@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var walkingSpeed = 5
 export var runningSpeed = 15
+export var snagSpeed    = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
 
@@ -38,17 +39,32 @@ func _on_object_pick_up_update(action, object):
 		var candle_visible = action == "up"
 		emit_signal("on_candle_visible", candle_visible)
 
+func _die():
+	emit_signal("player_die")
+
+func start_fall_animation():
+	var fall_animation_prefab = load("res://prefabs/FallAnimation.tscn")
+	var fall_animation = fall_animation_prefab.instance()
+	fall_animation.connect("fall_animation_completed", self, "_die")
+	add_child(fall_animation)
+
 func on_on_hole():
 	if alive and not is_rolling():
-		scale = Vector2(0.1, 0.1)
 		alive = false
-		emit_signal("player_die")
+		start_fall_animation()
+
 
 func on_fountain_activation():
 	if item_picking.is_holding_lamp():
 		emit_signal("activate_fountain")
 
+func process_debug():
+	if Input.is_action_just_pressed("debug_kill_player"):
+		alive = false
+		start_fall_animation()
+
 func _process(_delta):
+	process_debug()
 	# if Input.is_action_just_pressed("player_putdown"):
 	if Input.is_action_just_pressed("player_pickup_toggle"):
 		if item_picking.is_holding_something():
@@ -62,13 +78,12 @@ func _process(_delta):
 func is_rolling():
 	return not rolling_timer.is_stopped()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	# While the rolling timer is ticking, we're rolling
-	if is_rolling():
-		_process_rolling(delta)
-	else:
-		_process_walking(delta)
+	if alive:
+		if is_rolling():
+			_process_rolling(delta)
+		else:
+			_process_walking(delta)
 
 var rolling_dir = Vector2.ZERO
 
@@ -126,9 +141,12 @@ func _process_walking(delta):
 			speed = runningSpeed
 			activeSoundTimer = runningTimer
 			activeSound = runningSound
+
+		if Input.is_action_pressed("player_snag"):
+			speed = snagSpeed
 		var _i = move_and_slide(dir * speed * deltaSecs)
 
-		if Input.is_action_pressed("player_create_wall"):
+		if Input.is_action_pressed("player_create_wall") && item_picking.is_holding_lamp():
 			print("create wall")
 			var target_position = position
 			var new_wall

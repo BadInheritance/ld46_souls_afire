@@ -8,6 +8,7 @@ radius = 4.53804
 [node name="Fallable" type="Node2D" groups=[
 "fallable",
 ]]
+scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]

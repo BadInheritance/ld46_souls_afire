@@ -36,14 +36,22 @@ func switch_to_idle():
 	seek_target = null
 	currentState = ENEMY_STATE.IDLE_MOVE
 
+func _get_seen_candle():
+	var seen = $sight_area.get_overlapping_areas()
+	for area in seen:
+		if area.is_in_group("candle"):
+			return area
+	
 func _on_idle_move(delta):
 	angle_rotation_progress += 2 * PI * delta * 0.3
 	var angle_delta = sin(angle_rotation_progress) * PI / 3
-	$sight_raycast.cast_to = current_direction.rotated(angle_delta) * sightDistance
-	var collider = $sight_raycast.get_collider()
-	if collider is Area2D and collider.is_in_group("candle"):
-		switch_to_seeking(collider)
+	$sight_area.rotation = current_direction.angle() + angle_delta
+	
+	var target = _get_seen_candle()
+	if target != null:
+		switch_to_seeking(target)
 		return
+	
 	_walk_towards(current_direction, delta)
 
 
@@ -92,6 +100,9 @@ func _on_seeking_move(delta):
 		# enemy was last seen
 		pass 
 	$target_sprite.position = to_local(target_global_pos)
+
+	# Look where we're going (which influences what can be seen...!)
+	$sight_area.rotation = to_local(target_global_pos).angle()
 	
 	var seek_path = _find_path(target_global_pos)
 	$Line2D.points = seek_path

@@ -52,10 +52,11 @@ func on_level_completed():
 	start_level_load_timer()
 
 
-func on_player_reached_hatch():
-	if ! _is_about_to_reload_scene():
-		print("on level completed")
-		on_level_completed()
+func on_player_reached_hatch(with_lamp):
+	if with_lamp:
+		if ! _is_about_to_reload_scene():
+			print("on level completed")
+			on_level_completed()
 
 
 func on_player_death():

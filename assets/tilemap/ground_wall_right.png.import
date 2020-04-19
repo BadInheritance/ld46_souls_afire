@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hole1.png-39ebe98999b4acffb8aef552f925abf3.stex"
+path="res://.import/ground_wall_right.png-a3336cf1b0d00216d8ccbfaf5d8604bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/hole1.png"
-dest_files=[ "res://.import/hole1.png-39ebe98999b4acffb8aef552f925abf3.stex" ]
+source_file="res://assets/tilemap/ground_wall_right.png"
+dest_files=[ "res://.import/ground_wall_right.png-a3336cf1b0d00216d8ccbfaf5d8604bf.stex" ]
 
 [params]
 

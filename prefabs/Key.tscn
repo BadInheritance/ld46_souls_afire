@@ -32,7 +32,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -1 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="Pickable" parent="." instance=ExtResource( 1 )]

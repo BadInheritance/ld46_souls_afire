@@ -43,14 +43,19 @@ func try_pickup():
 	slot.add_child(to_pick_up)
 	to_pick_up.position = Vector2.ZERO
 	holding = to_pick_up
+	holding.connect("destroyed", self, "on_object_destroyed")
 	return true
 
+func on_object_destroyed():
+	print("holded object destroyed")
+	holding = null
 
 func put_down(dest_pos):
 	if holding == null:
 		print('Nothing to put down')
 		return
 
+	holding.disconnect("destroyed", self, "on_object_destroyed")
 	holding.get_parent().remove_child(holding)
 	emit_signal("object_pick_up_update", "down", holding)
 	# The object to put down is made sibling of the parent

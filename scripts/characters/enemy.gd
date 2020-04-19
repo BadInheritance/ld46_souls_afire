@@ -15,14 +15,16 @@ onready var sprite = $AnimatedSprite
 var last_random_update_time_ms = 0
 var current_direction = Vector2(0, 0)
 onready var starting_position = position
+var alive = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if currentState == ENEMY_STATE.IDLE_MOVE:
-		_on_idle_move(delta)
-	elif currentState == ENEMY_STATE.SEEKING:
-		_on_seeking_move(delta)
+	if alive:
+		if currentState == ENEMY_STATE.IDLE_MOVE:
+			_on_idle_move(delta)
+		elif currentState == ENEMY_STATE.SEEKING:
+			_on_seeking_move(delta)
 
 
 var angle_rotation_progress = 0.0
@@ -42,9 +44,6 @@ func _on_idle_move(delta):
 	if collider is Area2D and collider.is_in_group("candle"):
 		switch_to_seeking(collider)
 		return
-	elif collider != null:
-		print('Seeing:', collider)
-
 	_walk_towards(current_direction, delta)
 
 
@@ -127,13 +126,16 @@ func _update_animation(direction):
 		sprite.flip_h = (direction.x < 0)
 
 
-var alive = true
-
+func _die():
+	pass
 
 func on_on_hole():
 	if alive:
-		scale = Vector2(0.1, 0.1)
 		alive = false
+		var fall_animation_prefab = load("res://prefabs/FallAnimation.tscn")
+		var fall_animation = fall_animation_prefab.instance()
+		fall_animation.connect("fall_animation_completed", self, "_die")
+		add_child(fall_animation)
 
 
 func _on_change_direction_timer_timeout():

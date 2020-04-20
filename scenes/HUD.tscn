@@ -113,15 +113,61 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 64, 0, 64, 32 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
@@ -136,37 +182,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 15 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 15 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=15]
-animations = [ {
-"frames": [ SubResource( 17 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 18 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
-atlas = ExtResource( 18 )
+atlas = ExtResource( 20 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 flags = 4
-atlas = ExtResource( 18 )
+atlas = ExtResource( 20 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=24]
@@ -182,53 +205,30 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
-atlas = ExtResource( 20 )
+atlas = ExtResource( 19 )
 region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=30]
-flags = 4
-atlas = ExtResource( 20 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=25]
-animations = [ {
-"frames": [ SubResource( 29 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 30 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 19 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=28]
+[sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 26 ) ],
+"frames": [ SubResource( 25 ) ],
 "loop": true,
 "name": "pressed",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 27 ) ],
+"frames": [ SubResource( 26 ) ],
 "loop": true,
 "name": "unpressed",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=28]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
@@ -293,7 +293,7 @@ margin_bottom = 53.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 16 )
-text = "snag"
+text = "sneak"
 align = 1
 
 [node name="key_w" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
@@ -303,9 +303,8 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 90, 0 )
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 105.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_vertical = 4
 animatedSprite = SubResource( 6 )
 scancode = 87
@@ -326,9 +325,8 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 120.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_vertical = 4
 animatedSprite = SubResource( 9 )
 scancode = 69
@@ -350,8 +348,7 @@ rect_min_size = Vector2( 90, 0 )
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r" instance=ExtResource( 10 )]
 margin_left = 10.0
-margin_top = -1.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 animatedSprite = SubResource( 12 )
@@ -374,12 +371,11 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 80, 0 )
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 129.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 50, 30 )
 size_flags_vertical = 4
-animatedSprite = SubResource( 21 )
+animatedSprite = SubResource( 15 )
 scancode = 32
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar"]
@@ -402,12 +398,11 @@ margin_right = 70.0
 margin_bottom = 80.0
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/left_key" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 70.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
-animatedSprite = SubResource( 15 )
+animatedSprite = SubResource( 18 )
 scancode = 16777231
 
 [node name="down_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
@@ -416,12 +411,11 @@ margin_right = 130.0
 margin_bottom = 80.0
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/down_key" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 70.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
-animatedSprite = SubResource( 24 )
+animatedSprite = SubResource( 21 )
 scancode = 16777234
 
 [node name="up_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
@@ -430,12 +424,11 @@ margin_right = 190.0
 margin_bottom = 80.0
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/up_key" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 70.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
-animatedSprite = SubResource( 25 )
+animatedSprite = SubResource( 24 )
 scancode = 16777232
 
 [node name="right_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
@@ -444,12 +437,11 @@ margin_right = 250.0
 margin_bottom = 80.0
 
 [node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/right_key" instance=ExtResource( 10 )]
-margin_top = -1.0
 margin_right = 70.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
-animatedSprite = SubResource( 28 )
+animatedSprite = SubResource( 27 )
 scancode = 16777233
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -571,7 +563,7 @@ region_rect = Rect2( 0, 0, 32, 16 )
 
 [node name="Flame" type="AnimatedSprite" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 0, 5.04198 )
-frames = SubResource( 16 )
+frames = SubResource( 28 )
 frame = 2
 playing = true
 

@@ -1,6 +1,6 @@
 extends Control
 
-export(Resource) var animatedSprite = null
+export(SpriteFrames) var animatedSprite = null
 # export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/player_and_enemy.tscn"
 export(int) var scancode = 0
 

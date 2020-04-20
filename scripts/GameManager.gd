@@ -5,7 +5,8 @@ onready var level_reload_timer = $level_reload_timer
 onready var hud = $"HUD layer/HUD"
 var first_level_loaded = false
 
-export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/player_and_enemy.tscn"
+# export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/player_and_enemy.tscn"
+export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/level2.tscn"
 export (String, FILE, "*.tscn") var level1_path = "res://scenes/level1.tscn"
 export (String, FILE, "*.tscn") var level2_path = "res://scenes/level2.tscn"
 

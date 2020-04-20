@@ -39,6 +39,7 @@ position = Vector2( 0.463287, 0.92659 )
 shape = SubResource( 2 )
 
 [node name="door_body" type="KinematicBody2D" parent="."]
+collision_layer = 4
 
 [node name="door_body_shape" type="CollisionShape2D" parent="door_body"]
 rotation = 3.14159

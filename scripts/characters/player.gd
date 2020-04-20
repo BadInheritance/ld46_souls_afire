@@ -6,6 +6,7 @@ export var sneakSpeed = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
 export var normalPlayerVolumeDb = -20
+export var sneakingPlayerVolumeDb = -25
 export var walkingStepInterval = 0.6
 export var runningStepInterval = 0.3
 
@@ -18,6 +19,8 @@ onready var walkingSound = $PlayerSounds/Footstep
 onready var walkingTimer = 1.0 / walkingSpeed
 onready var runningSound = $PlayerSounds/Footstep
 onready var runningTimer = 1.0 / runningSpeed
+onready var sneakingSound = $PlayerSounds/Sneak
+onready var sneakingTimer = 1 / sneakSpeed
 onready var rollSound = $PlayerSounds/Roll
 onready var activeSoundTimer = walkingTimer
 onready var activeSound = walkingSound
@@ -42,7 +45,10 @@ func set_godmode(enabled):
 
 func _ready():
 	walkingSound.volume_db = normalPlayerVolumeDb
+	runningSound.volume_db = normalPlayerVolumeDb
+	sneakingSound.volume_db = sneakingPlayerVolumeDb
 	rollSound.volume_db = normalPlayerVolumeDb
+	
 
 
 func on_on_hatch():
@@ -76,6 +82,9 @@ func on_on_hole():
 
 func on_fountain_activation():
 	if item_picking.is_holding_lamp():
+		$FountainActivator/FountainDrop1.play()
+		yield($FountainActivator/FountainDrop1, "finished") 
+		$FountainActivator/FountainDrop2.play()
 		emit_signal("activate_fountain")
 
 
@@ -169,6 +178,8 @@ func _process_walking(delta):
 
 		if Input.is_action_pressed("player_sneak"):
 			speed = sneakSpeed
+			activeSoundTimer = sneakingTimer
+			activeSound = sneakingSound
 
 		var _i = move_and_slide(dir * speed * deltaSecs)
 
@@ -207,7 +218,13 @@ func _process_walking(delta):
 		else:
 			$steps_timer.wait_time = walkingStepInterval
 		if $steps_timer.is_stopped():
+			generate_step_sound()
 			$steps_timer.start()
+
+
+export var runningSoundRadius = 100.0
+export var walkingSoundRadius = 70.0
+export var sneakingSoundRadius = 35.0
 
 
 func generate_step_sound():
@@ -215,4 +232,12 @@ func generate_step_sound():
 	var node = scene.instance()
 	node.global_position = self.global_position
 	node.emitter = self
+
+	if Input.is_action_pressed("player_sneak"):
+		node.soundRadius = sneakingSoundRadius
+	elif Input.is_action_pressed("player_run"):
+		node.soundRadius = runningSoundRadius
+	else:
+		node.soundRadius = walkingSoundRadius
+
 	get_parent().add_child(node)

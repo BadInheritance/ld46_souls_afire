@@ -21,218 +21,218 @@
 [ext_resource path="res://assets/keyboard/Keys/right_key.png" type="Texture" id=19]
 [ext_resource path="res://assets/keyboard/Keys/up_key.png" type="Texture" id=20]
 
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ SubResource( 4 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 11 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ SubResource( 7 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=12]
-animations = [ {
-"frames": [ SubResource( 10 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 11 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 17 )
-region = Rect2( 64, 0, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 17 )
-region = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="SpriteFrames" id=15]
-animations = [ {
-"frames": [ SubResource( 13 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 15 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 15 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=18]
-animations = [ {
-"frames": [ SubResource( 16 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 17 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 18 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=21]
-animations = [ {
-"frames": [ SubResource( 19 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 20 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 20 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 20 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=24]
-animations = [ {
-"frames": [ SubResource( 22 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 23 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 19 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 19 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=27]
-animations = [ {
-"frames": [ SubResource( 25 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 26 ) ],
-"loop": true,
-"name": "unpressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=28]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 64, 0, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 21 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ SubResource( 23 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ SubResource( 26 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ) ],
+"loop": true,
+"name": "unpressed",
 "speed": 5.0
 } ]
 
@@ -263,191 +263,10 @@ margin_right = 1004.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 44.0
 margin_right = 1004.0
-margin_bottom = 124.0
-
-[node name="buttons_gui" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_right = 804.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 0, 80 )
-
-[node name="key_q" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
-margin_right = 90.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 90, 0 )
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_q" instance=ExtResource( 10 )]
-margin_right = 90.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 30 )
-size_flags_vertical = 0
-animatedSprite = SubResource( 3 )
-scancode = 81
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_q"]
-margin_top = 34.0
-margin_right = 90.0
-margin_bottom = 53.0
-rect_min_size = Vector2( 50, 0 )
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 16 )
-text = "sneak"
-align = 1
-
-[node name="key_w" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
-margin_left = 94.0
-margin_right = 199.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 90, 0 )
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w" instance=ExtResource( 10 )]
-margin_right = 105.0
-margin_bottom = 30.0
-size_flags_vertical = 4
-animatedSprite = SubResource( 6 )
-scancode = 87
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w"]
-margin_top = 34.0
-margin_right = 105.0
-margin_bottom = 53.0
-custom_fonts/font = ExtResource( 16 )
-text = "make wall"
-align = 1
-valign = 1
-
-[node name="key_e" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
-margin_left = 203.0
-margin_right = 323.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e" instance=ExtResource( 10 )]
-margin_right = 120.0
-margin_bottom = 30.0
-size_flags_vertical = 4
-animatedSprite = SubResource( 9 )
-scancode = 69
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e"]
-margin_top = 34.0
-margin_right = 120.0
-margin_bottom = 53.0
-custom_fonts/font = ExtResource( 16 )
-text = "do action"
-align = 1
-valign = 1
-
-[node name="key_r" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
-margin_left = 327.0
-margin_right = 417.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 90, 0 )
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r" instance=ExtResource( 10 )]
-margin_left = 10.0
-margin_bottom = 30.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-animatedSprite = SubResource( 12 )
-scancode = 82
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r"]
-margin_top = 34.0
-margin_right = 90.0
-margin_bottom = 75.0
-custom_fonts/font = ExtResource( 16 )
-text = "roll
-"
-align = 1
-valign = 1
-
-[node name="key_spacebar" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
-margin_left = 421.0
-margin_right = 550.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 0 )
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar" instance=ExtResource( 10 )]
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 50, 30 )
-size_flags_vertical = 4
-animatedSprite = SubResource( 15 )
-scancode = 32
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 53.0
-custom_fonts/font = ExtResource( 16 )
-text = "pick up/drop"
-align = 2
-valign = 1
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
-margin_left = 554.0
-margin_right = 804.0
-margin_bottom = 80.0
-custom_constants/separation = -10
-
-[node name="left_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
-margin_right = 70.0
-margin_bottom = 80.0
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/left_key" instance=ExtResource( 10 )]
-margin_right = 70.0
-margin_bottom = 30.0
-size_flags_horizontal = 6
-size_flags_vertical = 4
-animatedSprite = SubResource( 18 )
-scancode = 16777231
-
-[node name="down_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
-margin_left = 60.0
-margin_right = 130.0
-margin_bottom = 80.0
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/down_key" instance=ExtResource( 10 )]
-margin_right = 70.0
-margin_bottom = 30.0
-size_flags_horizontal = 6
-size_flags_vertical = 4
-animatedSprite = SubResource( 21 )
-scancode = 16777234
-
-[node name="up_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
-margin_left = 120.0
-margin_right = 190.0
-margin_bottom = 80.0
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/up_key" instance=ExtResource( 10 )]
-margin_right = 70.0
-margin_bottom = 30.0
-size_flags_horizontal = 6
-size_flags_vertical = 4
-animatedSprite = SubResource( 24 )
-scancode = 16777232
-
-[node name="right_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
-margin_left = 180.0
-margin_right = 250.0
-margin_bottom = 80.0
-
-[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/right_key" instance=ExtResource( 10 )]
-margin_right = 70.0
-margin_bottom = 30.0
-size_flags_horizontal = 6
-size_flags_vertical = 4
-animatedSprite = SubResource( 27 )
-scancode = 16777233
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 128.0
-margin_right = 1004.0
-margin_bottom = 580.0
+margin_bottom = 496.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 2
@@ -563,10 +382,191 @@ region_rect = Rect2( 0, 0, 32, 16 )
 
 [node name="Flame" type="AnimatedSprite" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 0, 5.04198 )
-frames = SubResource( 28 )
-frame = 1
+frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
 one_shot = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 500.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="buttons_gui" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 804.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+
+[node name="key_q" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_right = 90.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 90, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_q" instance=ExtResource( 10 )]
+margin_right = 90.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_vertical = 0
+animatedSprite = SubResource( 4 )
+scancode = 81
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_q"]
+margin_top = 34.0
+margin_right = 90.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "sneak"
+align = 1
+
+[node name="key_w" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 94.0
+margin_right = 199.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 90, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w" instance=ExtResource( 10 )]
+margin_right = 105.0
+margin_bottom = 30.0
+size_flags_vertical = 4
+animatedSprite = SubResource( 7 )
+scancode = 87
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w"]
+margin_top = 34.0
+margin_right = 105.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 16 )
+text = "make wall"
+align = 1
+valign = 1
+
+[node name="key_e" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 203.0
+margin_right = 323.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e" instance=ExtResource( 10 )]
+margin_right = 120.0
+margin_bottom = 30.0
+size_flags_vertical = 4
+animatedSprite = SubResource( 10 )
+scancode = 69
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e"]
+margin_top = 34.0
+margin_right = 120.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 16 )
+text = "do action"
+align = 1
+valign = 1
+
+[node name="key_r" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 327.0
+margin_right = 417.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 90, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r" instance=ExtResource( 10 )]
+margin_left = 10.0
+margin_bottom = 30.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+animatedSprite = SubResource( 13 )
+scancode = 82
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r"]
+margin_top = 34.0
+margin_right = 90.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 16 )
+text = "roll
+"
+align = 1
+valign = 1
+
+[node name="key_spacebar" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 421.0
+margin_right = 550.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar" instance=ExtResource( 10 )]
+margin_right = 129.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 50, 30 )
+size_flags_vertical = 4
+animatedSprite = SubResource( 16 )
+scancode = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar"]
+margin_top = 34.0
+margin_right = 129.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 16 )
+text = "pick up/drop"
+align = 2
+valign = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 554.0
+margin_right = 804.0
+margin_bottom = 80.0
+custom_constants/separation = -10
+
+[node name="left_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_right = 70.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/left_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 19 )
+scancode = 16777231
+
+[node name="down_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_left = 60.0
+margin_right = 130.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/down_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 22 )
+scancode = 16777234
+
+[node name="up_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_left = 120.0
+margin_right = 190.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/up_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 25 )
+scancode = 16777232
+
+[node name="right_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_left = 180.0
+margin_right = 250.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/right_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 28 )
+scancode = 16777233
 [connection signal="candle_die" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle" to="." method="_fwd_candle_die"]

@@ -50,6 +50,7 @@ position = Vector2( -0.68113, -15.4404 )
 scale = Vector2( 0.851005, 0.9054 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="Fallable" parent="." instance=ExtResource( 3 )]
@@ -69,6 +70,7 @@ script = ExtResource( 2 )
 autostart = true
 
 [node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -0.0351715, 19.5498 )
 
 [node name="waypoint_sprite" type="Sprite" parent="."]
 texture = ExtResource( 13 )

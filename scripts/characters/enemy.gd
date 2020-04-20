@@ -32,7 +32,13 @@ func _physics_process(delta):
 		elif currentState == ENEMY_STATE.BLOWING_CANDLE:
 			_process_blowing_candle(delta)
 
-		
+func _ready():
+	if ! OS.is_debug_build():
+		$sight_area.set_visible(false)
+		$waypoint_sprite.set_visible(false)
+		$target_sprite.set_visible(false)
+		$Line2D.set_visible(false)
+		$sight_raycast.get_node("raycast viewer").set_visible(false)
 
 var angle_rotation_progress = 0.0
 var seek_target: Node2D = null
@@ -64,17 +70,17 @@ func _on_idle_move(delta):
 	angle_rotation_progress += 2 * PI * delta * 0.3
 	var angle_delta = sin(angle_rotation_progress) * PI / 3
 	$sight_area.rotation = current_direction.angle() + angle_delta
-	
+
 	var target = _get_seen_candle()
 	if target != null:
 		switch_to_seeking(target)
 		return
-	
+
 	_walk_towards(current_direction, delta)
 
 	if _get_candle_distance() < candleReachDistance:
 		switch_to_blowing_candle()
-	
+
 
 func _walk_towards(dir, deltaTime):
 	var _i = move_and_slide(dir.normalized() * walkingSpeed * deltaTime * 1000.0)
@@ -117,7 +123,7 @@ func look_at(target_global: Vector2):
 	$sight_area.rotation = to_local(target_global).angle()
 	current_direction = to_local(target_global).normalized()
 	angle_rotation_progress = 0.0
-	
+
 func _on_seeking_move(delta):
 	$sight_raycast.cast_to = $sight_raycast.to_local(seek_target.global_position)
 	$sight_raycast.update()
@@ -133,7 +139,7 @@ func _on_seeking_move(delta):
 
 	# Look where we're going (which influences what can be seen...!)
 	look_at(target_global_pos)
-	
+
 	var seek_path = _find_path(target_global_pos)
 	$Line2D.points = seek_path
 	while true:
@@ -148,7 +154,7 @@ func _on_seeking_move(delta):
 		else:
 			$waypoint_sprite.visible = true
 			$waypoint_sprite.position = next_waypoint
-		
+
 		# next_waypoint is in local coordintes => its length is the distance from the character
 		if next_waypoint.length() < 3.0:
 			# Waypoint reached
@@ -160,7 +166,7 @@ func _on_seeking_move(delta):
 
 	if _get_candle_distance() < candleReachDistance:
 		switch_to_blowing_candle()
-	
+
 func switch_to_blowing_candle():
 	currentState = ENEMY_STATE.BLOWING_CANDLE
 	sprite.animation = 'attacking'

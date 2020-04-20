@@ -24,6 +24,11 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 4 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "attacking",
+"speed": 2.0
+}, {
 "frames": [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "run",
@@ -81,4 +86,7 @@ polygon = PoolVector2Array( 0, 0, 128, 56, 152, 0, 128, -56 )
 [node name="Polygon2D" type="Polygon2D" parent="sight_area/CollisionPolygon2D"]
 color = Color( 1, 0.992157, 0.545098, 0.317647 )
 polygon = PoolVector2Array( 0, 0, 128, -56, 152, 0, 128, 56 )
+
+[node name="candle_hurt_timer" type="Timer" parent="."]
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]
+[connection signal="timeout" from="candle_hurt_timer" to="." method="_hurt_candle"]

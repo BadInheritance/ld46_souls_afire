@@ -306,8 +306,10 @@ __meta__ = {
 anims/FadeIn = SubResource( 1 )
 
 [node name="Label" type="Label" parent="Slide1/FadeIn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -335,8 +337,10 @@ __meta__ = {
 anims/FadeIn = SubResource( 3 )
 
 [node name="Label" type="Label" parent="Slide2/FadeIn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 0 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
@@ -363,10 +367,10 @@ __meta__ = {
 anims/FadeIn = SubResource( 5 )
 
 [node name="Label" type="Label" parent="Slide3/FadeIn"]
-margin_left = 100.0
-margin_top = 100.0
-margin_right = 900.0
-margin_bottom = 500.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 0 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
@@ -394,10 +398,10 @@ __meta__ = {
 anims/FadeIn = SubResource( 7 )
 
 [node name="Label" type="Label" parent="Slide4/FadeIn"]
-margin_left = 100.0
-margin_top = 100.0
-margin_right = 900.0
-margin_bottom = 500.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 0 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
@@ -424,10 +428,10 @@ __meta__ = {
 anims/FadeIn = SubResource( 9 )
 
 [node name="Label" type="Label" parent="Slide5/FadeIn"]
-margin_left = 100.0
-margin_top = 100.0
-margin_right = 900.0
-margin_bottom = 500.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 0 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )

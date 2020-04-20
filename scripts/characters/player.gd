@@ -89,10 +89,10 @@ func on_fountain_activation():
 
 
 func process_debug():
-	if Input.is_action_just_pressed("debug_kill_player"):
+	if Input.is_action_just_pressed("debug_kill_player") && OS.is_debug_build():
 		alive = false
 		start_fall_animation()
-	if Input.is_action_just_pressed("debug_godmode"):
+	if Input.is_action_just_pressed("debug_godmode") && OS.is_debug_build():
 		set_godmode(!is_godmode_on())
 
 
@@ -171,7 +171,7 @@ func _process_walking(delta):
 		var speed = walkingSpeed
 		activeSoundTimer = walkingTimer
 		activeSound = walkingSound
-		if Input.is_action_pressed("player_run"):
+		if Input.is_action_pressed("player_run") && OS.is_debug_build():
 			speed = runningSpeed
 			activeSoundTimer = runningTimer
 			activeSound = runningSound
@@ -213,7 +213,7 @@ func _process_walking(delta):
 		if soundTimer.is_stopped():
 			activeSound.play()
 			soundTimer.start(activeSoundTimer)
-		if Input.is_action_pressed("player_run"):
+		if Input.is_action_pressed("player_run") && OS.is_debug_build():
 			$steps_timer.wait_time = runningStepInterval
 		else:
 			$steps_timer.wait_time = walkingStepInterval
@@ -235,7 +235,7 @@ func generate_step_sound():
 
 	if Input.is_action_pressed("player_sneak"):
 		node.soundRadius = sneakingSoundRadius
-	elif Input.is_action_pressed("player_run"):
+	elif Input.is_action_pressed("player_run") && OS.is_debug_build():
 		node.soundRadius = runningSoundRadius
 	else:
 		node.soundRadius = walkingSoundRadius

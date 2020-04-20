@@ -3,7 +3,7 @@ extends MarginContainer
 signal candle_die
 
 func _process(_delta):
-	if Input.is_action_pressed("debug_show_candle_time_left"):
+	if Input.is_action_pressed("debug_show_candle_time_left") && OS.is_debug_build():
 		find_node("hud_candle_time_left").visible = !find_node("hud_candle_time_left").visible
 
 

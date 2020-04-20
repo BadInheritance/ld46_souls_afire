@@ -60,7 +60,7 @@ func _on_timeout():
 func _process(_delta):
 	emit_signal("candle_time_left", timer.time_left)
 
-	if Input.is_action_pressed("debug_pause_candle"):
+	if Input.is_action_pressed("debug_pause_candle") && OS.is_debug_build():
 		timer.paused = !timer.paused
 
 	if is_burning:

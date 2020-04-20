@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var current_level_holder = $"Game layer/current_level"
+onready var current_level_holder = find_node("current_level")
 onready var level_reload_timer = $level_reload_timer
 onready var hud = $"HUD layer/HUD"
 var first_level_loaded = false

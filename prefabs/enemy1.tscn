@@ -24,15 +24,15 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "attacking",
-"speed": 2.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "run",
 "speed": 8.01
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "attacking",
+"speed": 2.0
 } ]
 
 [node name="enemy" type="KinematicBody2D" groups=[
@@ -50,6 +50,7 @@ position = Vector2( -0.68113, -15.4404 )
 scale = Vector2( 0.851005, 0.9054 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Fallable" parent="." instance=ExtResource( 3 )]
@@ -60,6 +61,7 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="raycast viewer" type="Line2D" parent="sight_raycast"]
+visible = false
 points = PoolVector2Array( 0, 0, 0, 50 )
 width = 4.0
 default_color = Color( 0.180392, 0.701961, 0.494118, 1 )
@@ -69,11 +71,14 @@ script = ExtResource( 2 )
 autostart = true
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 
 [node name="waypoint_sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 13 )
 
 [node name="target_sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 12 )
 
 [node name="sight_area" type="Area2D" parent="."]
@@ -84,6 +89,7 @@ collision_mask = 4
 polygon = PoolVector2Array( 0, 0, 128, 56, 152, 0, 128, -56 )
 
 [node name="Polygon2D" type="Polygon2D" parent="sight_area/CollisionPolygon2D"]
+visible = false
 color = Color( 1, 0.992157, 0.545098, 0.317647 )
 polygon = PoolVector2Array( 0, 0, 128, -56, 152, 0, 128, 56 )
 

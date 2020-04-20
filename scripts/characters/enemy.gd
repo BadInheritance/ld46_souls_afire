@@ -146,7 +146,7 @@ func _on_seeking_move(delta):
 			switch_to_idle()
 			break
 		else:
-			$waypoint_sprite.visible = true
+			# $waypoint_sprite.visible = true
 			$waypoint_sprite.position = next_waypoint
 		
 		# next_waypoint is in local coordintes => its length is the distance from the character

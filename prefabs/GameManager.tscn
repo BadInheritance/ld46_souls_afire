@@ -14,7 +14,9 @@ one_shot = true
 layer = -1
 follow_viewport_enable = true
 
-[node name="current_level" type="Node2D" parent="Game layer"]
+[node name="YSort" type="YSort" parent="Game layer"]
+
+[node name="current_level" type="Node2D" parent="Game layer/YSort"]
 
 [node name="HUD layer" type="CanvasLayer" parent="."]
 

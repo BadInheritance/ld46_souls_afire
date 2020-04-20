@@ -12,13 +12,29 @@ export (String, FILE, "*.tscn") var level2_path = "res://scenes/level2.tscn"
 export (String, FILE, "*.tscn") var level3_path = "res://scenes/level3.tscn"
 export (String, FILE, "*.tscn") var level4_path = "res://scenes/level4.tscn"
 export (String, FILE, "*.tscn") var level5_path = "res://scenes/level5.tscn"
-
+export (String, FILE, "*.tscn") var level6_path = "res://scenes/level6.tscn"
+export (String, FILE, "*.tscn") var level7_path = "res://scenes/level7.tscn"
+export (String, FILE, "*.tscn") var level8_path = "res://scenes/level8.tscn"
+export (String, FILE, "*.tscn") var level9_path = "res://scenes/level9.tscn"
+export (String, FILE, "*.tscn") var level10_path = "res://scenes/level10.tscn"
 
 export var levelReloadTimeSeconds = 1
 var current_level = null
 var loading_level = false
 
-var levels = [level0_path, level1_path, level2_path, level3_path, level4_path, level5_path]
+var levels = [
+	level0_path,
+	level1_path,
+	level2_path,
+	level3_path,
+	level4_path,
+	level5_path,
+	level6_path,
+	level7_path,
+	level8_path,
+	level9_path,
+	level10_path
+]
 
 
 func get_current_level():
@@ -95,9 +111,11 @@ func _connect_signals(level):
 	player.connect("cast_wall_spell", hud, "on_wall_spell")
 	player.connect("activate_fountain", hud, "on_fountain_activation")
 
+
 func load_level_params(level):
 	var candle_time = level.get_node("LevelParams").candleTime
 	hud.set_candle_time(candle_time)
+
 
 func _load_level(level_path):
 	var level_scene = load(level_path)

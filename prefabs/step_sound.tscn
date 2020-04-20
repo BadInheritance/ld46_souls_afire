@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/steps sound.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[node name="steps sound" type="Node2D"]
+script = ExtResource( 1 )
+color = Color( 0.878431, 0.870588, 0.815686, 0.133333 )
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

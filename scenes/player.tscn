@@ -136,5 +136,10 @@ pitch_scale = 0.83
 
 [node name="PickObject" type="AudioStreamPlayer2D" parent="PlayerSounds"]
 stream = ExtResource( 21 )
+
+[node name="steps_timer" type="Timer" parent="."]
+wait_time = 0.3
+
 [connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]
+[connection signal="timeout" from="steps_timer" to="." method="generate_step_sound"]

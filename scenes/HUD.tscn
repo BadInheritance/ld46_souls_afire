@@ -254,7 +254,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1095.0
+margin_right = 1020.0
 margin_bottom = 590.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -272,43 +272,44 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 62.0
-margin_right = 983.0
+margin_right = 908.0
 margin_bottom = 580.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_right = 921.0
+margin_right = 846.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
 margin_top = 24.0
-margin_right = 921.0
+margin_right = 804.0
 margin_bottom = 104.0
 size_flags_horizontal = 0
 size_flags_vertical = 3
 
 [node name="buttons_gui" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer"]
-margin_right = 921.0
+margin_right = 804.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 
 [node name="key_q" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui"]
-margin_right = 100.0
+margin_right = 90.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 100, 0 )
+rect_min_size = Vector2( 90, 0 )
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/key_q" instance=ExtResource( 10 )]
-margin_right = 100.0
+margin_right = 90.0
 margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
 size_flags_vertical = 0
 animatedSprite = SubResource( 3 )
 scancode = 81
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/key_q"]
 margin_top = 34.0
-margin_right = 100.0
+margin_right = 90.0
 margin_bottom = 53.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
@@ -317,14 +318,14 @@ text = "snag"
 align = 1
 
 [node name="key_w" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui"]
-margin_left = 104.0
-margin_right = 224.0
+margin_left = 94.0
+margin_right = 199.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 90, 0 )
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/key_w" instance=ExtResource( 10 )]
 margin_top = -1.0
-margin_right = 120.0
+margin_right = 105.0
 margin_bottom = 29.0
 size_flags_vertical = 4
 animatedSprite = SubResource( 6 )
@@ -332,7 +333,7 @@ scancode = 87
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/key_w"]
 margin_top = 34.0
-margin_right = 120.0
+margin_right = 105.0
 margin_bottom = 53.0
 custom_fonts/font = ExtResource( 16 )
 text = "make wall"
@@ -340,8 +341,8 @@ align = 1
 valign = 1
 
 [node name="key_e" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui"]
-margin_left = 228.0
-margin_right = 348.0
+margin_left = 203.0
+margin_right = 323.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 120, 0 )
 
@@ -363,15 +364,14 @@ align = 1
 valign = 1
 
 [node name="key_r" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui"]
-margin_left = 352.0
-margin_right = 452.0
+margin_left = 327.0
+margin_right = 417.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 100, 0 )
+rect_min_size = Vector2( 90, 0 )
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/key_r" instance=ExtResource( 10 )]
 margin_left = 10.0
 margin_top = -1.0
-margin_right = 90.0
 margin_bottom = 29.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -380,7 +380,7 @@ scancode = 82
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/key_r"]
 margin_top = 34.0
-margin_right = 100.0
+margin_right = 90.0
 margin_bottom = 75.0
 custom_fonts/font = ExtResource( 16 )
 text = "roll
@@ -389,8 +389,8 @@ align = 1
 valign = 1
 
 [node name="key_spacebar" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui"]
-margin_left = 456.0
-margin_right = 585.0
+margin_left = 421.0
+margin_right = 550.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 0 )
 
@@ -413,16 +413,18 @@ align = 2
 valign = 1
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui"]
-margin_left = 589.0
-margin_right = 921.0
+margin_left = 554.0
+margin_right = 804.0
 margin_bottom = 80.0
+custom_constants/separation = -10
 
 [node name="left_key" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5"]
-margin_right = 80.0
+margin_right = 70.0
 margin_bottom = 80.0
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5/left_key" instance=ExtResource( 10 )]
 margin_top = -1.0
+margin_right = 70.0
 margin_bottom = 29.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -430,12 +432,13 @@ animatedSprite = SubResource( 15 )
 scancode = 16777231
 
 [node name="down_key" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5"]
-margin_left = 84.0
-margin_right = 164.0
+margin_left = 60.0
+margin_right = 130.0
 margin_bottom = 80.0
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5/down_key" instance=ExtResource( 10 )]
 margin_top = -1.0
+margin_right = 70.0
 margin_bottom = 29.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -443,12 +446,13 @@ animatedSprite = SubResource( 24 )
 scancode = 16777234
 
 [node name="up_key" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5"]
-margin_left = 168.0
-margin_right = 248.0
+margin_left = 120.0
+margin_right = 190.0
 margin_bottom = 80.0
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5/up_key" instance=ExtResource( 10 )]
 margin_top = -1.0
+margin_right = 70.0
 margin_bottom = 29.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -456,12 +460,13 @@ animatedSprite = SubResource( 25 )
 scancode = 16777232
 
 [node name="right_key" type="VBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5"]
-margin_left = 252.0
-margin_right = 332.0
+margin_left = 180.0
+margin_right = 250.0
 margin_bottom = 80.0
 
 [node name="Control" parent="HBoxContainer/VBoxContainer3/HBoxContainer/buttons_gui/HBoxContainer5/right_key" instance=ExtResource( 10 )]
 margin_top = -1.0
+margin_right = 70.0
 margin_bottom = 29.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -470,13 +475,13 @@ scancode = 16777233
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
 margin_top = 108.0
-margin_right = 921.0
+margin_right = 846.0
 margin_bottom = 508.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="hud_main_text" type="RichTextLabel" parent="HBoxContainer/VBoxContainer3/HBoxContainer2"]
-margin_right = 921.0
+margin_right = 846.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 200, 400 )
 size_flags_horizontal = 3
@@ -493,7 +498,7 @@ __meta__ = {
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
 margin_top = 512.0
-margin_right = 921.0
+margin_right = 846.0
 margin_bottom = 580.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -510,8 +515,8 @@ custom_fonts/font = ExtResource( 9 )
 text = "time_left"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 985.0
-margin_right = 1085.0
+margin_left = 910.0
+margin_right = 1010.0
 margin_bottom = 580.0
 rect_min_size = Vector2( 60, 300 )
 size_flags_horizontal = 0
@@ -558,7 +563,6 @@ region_rect = Rect2( 0, 0, 32, 16 )
 [node name="Flame" type="AnimatedSprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 0, 5.04198 )
 frames = SubResource( 16 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]

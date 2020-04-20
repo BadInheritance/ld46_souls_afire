@@ -19,7 +19,7 @@ animations = [ {
 [node name="KeyboardKeyGui" type="HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 80, 30 )
+rect_min_size = Vector2( 60, 30 )
 size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
@@ -35,32 +35,33 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="HBoxContainer2"]
-margin_right = 9.0
+margin_right = 5.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control2" type="HBoxContainer" parent="HBoxContainer2"]
-margin_left = 13.0
-margin_right = 63.0
+margin_left = 9.0
+margin_right = 67.0
 margin_bottom = 20.0
 grow_horizontal = 2
-rect_min_size = Vector2( 50, 20 )
+rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 4.5
 
 [node name="Control" type="Control" parent="HBoxContainer2/Control2"]
-margin_right = 14.0
+margin_right = 25.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 25, 0 )
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control2" type="Control" parent="HBoxContainer2/Control2"]
-margin_left = 25.0
-margin_right = 25.0
+margin_left = 29.0
+margin_right = 29.0
 margin_bottom = 20.0
 size_flags_horizontal = 6
 __meta__ = {
@@ -71,9 +72,10 @@ __meta__ = {
 frames = SubResource( 2 )
 
 [node name="Control3" type="Control" parent="HBoxContainer2/Control2"]
-margin_left = 36.0
-margin_right = 50.0
+margin_left = 33.0
+margin_right = 58.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 25, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -81,7 +83,7 @@ __meta__ = {
 }
 
 [node name="Control3" type="Control" parent="HBoxContainer2"]
-margin_left = 67.0
+margin_left = 71.0
 margin_right = 76.0
 margin_bottom = 40.0
 size_flags_horizontal = 3

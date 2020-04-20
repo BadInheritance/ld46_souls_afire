@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tilemap/main_tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://prefabs/enemy1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/LevelParams.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://prefabs/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://prefabs/Hole.tscn" type="PackedScene" id=8]
@@ -123,3 +124,6 @@ position = Vector2( -255.961, -64.2748 )
 
 [node name="enemy" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( -70.6627, -227.877 )
+
+[node name="LevelParams" parent="." instance=ExtResource( 3 )]
+candleTime = 90

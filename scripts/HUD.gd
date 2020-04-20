@@ -10,6 +10,8 @@ func _process(_delta):
 func _on_candle_time_left(time_left_seconds):
 	find_node("hud_candle_time_left").text = str(time_left_seconds)
 
+func set_candle_time(candle_time):
+	find_node("Candle").set_candle_time(candle_time)
 
 func on_level_reset():
 	_set_hud_main_text("")

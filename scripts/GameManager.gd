@@ -91,6 +91,9 @@ func _connect_signals(level):
 	player.connect("cast_wall_spell", hud, "on_wall_spell")
 	player.connect("activate_fountain", hud, "on_fountain_activation")
 
+func load_level_params(level):
+	var candle_time = level.get_node("LevelParams").candleTime
+	hud.set_candle_time(candle_time)
 
 func _load_level(level_path):
 	var level_scene = load(level_path)
@@ -109,4 +112,5 @@ func _load_level(level_path):
 	player_camera.current = true
 	hud.on_level_reset()
 	print("level loaded")
+	load_level_params(level)
 	loading_level = false

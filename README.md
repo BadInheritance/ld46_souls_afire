@@ -14,7 +14,7 @@
  - https://shikashiassets.itch.io/shikashis-fantasy-icons-pack
  - https://gerald-burke.itch.io/geralds-keys
  - https://arcadiaxdev.itch.io/chonkly-pixel-font
- - impact_sounds
- - interface_sounds 
- - rpg_audio
+ - https://www.kenney.nl/assets/impact-sounds
+ - https://www.kenney.nl/assets/interface-sounds 
+ - https://www.kenney.nl/assets/rpg-audio
 

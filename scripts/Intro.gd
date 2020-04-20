@@ -14,7 +14,7 @@ onready var intro_done = false
 
 
 func _ready():
-	if false:
+	if OS.is_debug_build():
 		intro_done = true
 	else:
 		timer.start()

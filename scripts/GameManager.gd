@@ -5,17 +5,18 @@ onready var level_reload_timer = $level_reload_timer
 onready var hud = $"HUD layer/HUD"
 var first_level_loaded = false
 
-# export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/player_and_enemy.tscn"
-export (String, FILE, "*.tscn") var level_scene_path = "res://scenes/level2.tscn"
+export var current_level_index = 0
+export (String, FILE, "*.tscn") var level0_path = "res://scenes/level0.tscn"
 export (String, FILE, "*.tscn") var level1_path = "res://scenes/level1.tscn"
 export (String, FILE, "*.tscn") var level2_path = "res://scenes/level2.tscn"
+export (String, FILE, "*.tscn") var level3_path = "res://scenes/level3.tscn"
+
 
 export var levelReloadTimeSeconds = 1
 var current_level = null
-var current_level_index = 0
 var loading_level = false
 
-var levels = [level_scene_path, level1_path, level2_path]
+var levels = [level0_path, level1_path, level2_path, level3_path]
 
 
 func get_current_level():

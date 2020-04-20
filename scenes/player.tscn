@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/wizzard_f_idle_anim_f2.png" type="Texture" id=1]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.3/frames/wizzard_f_idle_anim_f0.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/sounds/leave_candle.ogg" type="AudioStream" id=20]
 [ext_resource path="res://assets/sounds/pick_object.ogg" type="AudioStream" id=21]
 [ext_resource path="res://assets/sounds/footstep_light.ogg" type="AudioStream" id=22]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
@@ -62,6 +63,7 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -92,6 +94,11 @@ zoom = Vector2( 0.5, 0.5 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+script = ExtResource( 23 )
+
+[node name="shake_timer" type="Timer" parent="camera"]
+wait_time = 0.4
+one_shot = true
 
 [node name="RollingTimer" type="Timer" parent="."]
 wait_time = 0.4
@@ -156,7 +163,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]
 [connection signal="timeout" from="steps_timer" to="." method="generate_step_sound"]

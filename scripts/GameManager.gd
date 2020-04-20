@@ -93,6 +93,10 @@ func _connect_signals(level):
 	player.connect("cast_wall_spell", hud, "on_wall_spell")
 	player.connect("activate_fountain", hud, "on_fountain_activation")
 
+	var camera = player.find_node("camera")
+	var candle = $"HUD layer/HUD".find_node("Candle", true, false)
+	candle.connect("took_damage", camera, "start_shake")
+
 func load_level_params(level):
 	var candle_time = level.get_node("LevelParams").candleTime
 	hud.set_candle_time(candle_time)

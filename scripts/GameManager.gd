@@ -10,13 +10,15 @@ export (String, FILE, "*.tscn") var level0_path = "res://scenes/level0.tscn"
 export (String, FILE, "*.tscn") var level1_path = "res://scenes/level1.tscn"
 export (String, FILE, "*.tscn") var level2_path = "res://scenes/level2.tscn"
 export (String, FILE, "*.tscn") var level3_path = "res://scenes/level3.tscn"
+export (String, FILE, "*.tscn") var level4_path = "res://scenes/level4.tscn"
+export (String, FILE, "*.tscn") var level5_path = "res://scenes/level5.tscn"
 
 
 export var levelReloadTimeSeconds = 1
 var current_level = null
 var loading_level = false
 
-var levels = [level0_path, level1_path, level2_path, level3_path]
+var levels = [level0_path, level1_path, level2_path, level3_path, level4_path, level5_path]
 
 
 func get_current_level():

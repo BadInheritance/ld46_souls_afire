@@ -6,6 +6,7 @@ export var sneakSpeed = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
 export var normalPlayerVolumeDb = -20
+export var sneakingPlayerVolumeDb = -25
 export var walkingStepInterval = 0.6
 export var runningStepInterval = 0.3
 
@@ -18,6 +19,8 @@ onready var walkingSound = $PlayerSounds/Footstep
 onready var walkingTimer = 1.0 / walkingSpeed
 onready var runningSound = $PlayerSounds/Footstep
 onready var runningTimer = 1.0 / runningSpeed
+onready var sneakingSound = $PlayerSounds/Sneak
+onready var sneakingTimer = 1 / sneakSpeed
 onready var rollSound = $PlayerSounds/Roll
 onready var activeSoundTimer = walkingTimer
 onready var activeSound = walkingSound
@@ -36,7 +39,10 @@ signal on_candle_visible(visible)
 
 func _ready():
 	walkingSound.volume_db = normalPlayerVolumeDb
+	runningSound.volume_db = normalPlayerVolumeDb
+	sneakingSound.volume_db = sneakingPlayerVolumeDb
 	rollSound.volume_db = normalPlayerVolumeDb
+	
 
 
 func on_on_hatch():
@@ -69,6 +75,9 @@ func on_on_hole():
 
 func on_fountain_activation():
 	if item_picking.is_holding_lamp():
+		$FountainActivator/FountainDrop1.play()
+		yield($FountainActivator/FountainDrop1, "finished") 
+		$FountainActivator/FountainDrop2.play()
 		emit_signal("activate_fountain")
 
 
@@ -160,6 +169,8 @@ func _process_walking(delta):
 
 		if Input.is_action_pressed("player_sneak"):
 			speed = sneakSpeed
+			activeSoundTimer = sneakingTimer
+			activeSound = sneakingSound
 
 		var _i = move_and_slide(dir * speed * deltaSecs)
 

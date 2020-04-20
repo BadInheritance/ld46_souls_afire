@@ -5,7 +5,7 @@ export var wallSpellCost = 5.0
 
 signal candle_die
 signal candle_time_left(time_left)
-
+signal took_damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +24,10 @@ func _add_to_timer(seconds):
 		timer.start(new_timer_time)
 
 func consume_wall_spell():
-	var new_timer_time = timer.time_left - wallSpellCost
+	_take_damage(wallSpellCost)
+
+func _take_damage(time_lost):
+	var new_timer_time = timer.time_left - time_lost
 	if new_timer_time < 0:
 		is_burning = false
 		$CandleTop/Wax.region_rect.size.y = 0
@@ -33,6 +36,7 @@ func consume_wall_spell():
 		_on_timeout()
 	else:
 		timer.start(new_timer_time)
+		emit_signal("took_damage")
 
 
 onready var timer = $Timer
@@ -66,3 +70,6 @@ func _process(_delta):
 			$CandleTop/Wax.region_rect.size.y = newWaxLength
 			$CandleTop/Wax.offset.y = (waxStartLength - newWaxLength)
 			$CandleTop/Flame.offset.y = (waxStartLength - newWaxLength)
+
+func hurt_by_enemy(time_lost):
+	_take_damage(time_lost)

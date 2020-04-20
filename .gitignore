@@ -10,3 +10,6 @@ data_*/
 
 # Don't commit temporary scenes, used for testing
 temp_scenes/
+
+# Development tools, each developer has their own
+.vscode/

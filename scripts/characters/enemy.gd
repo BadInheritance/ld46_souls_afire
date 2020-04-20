@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-enum ENEMY_STATE { IDLE_STAND, IDLE_MOVE, SEEKING }
+enum ENEMY_STATE { IDLE_STAND, IDLE_MOVE, SEEKING, BLOWING_CANDLE }
 
 export var walkingSpeed = 4.0
 export var directionChangeProbability = 0.8
 export var maxDistanceFromStartingPosition = 50
 export var currentState = ENEMY_STATE.IDLE_MOVE
 export var waypoint_noise_std = 3
+export var candleReachDistance = 20.0
+export var candleDamage = 5.0
 
 onready var navigation = find_parent("Navigation2D")
 onready var tilemap = navigation.get_node("TileMap")
@@ -20,28 +22,44 @@ var rng = RandomNumberGenerator.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	_seen_candle = null
+
 	if alive:
 		if currentState == ENEMY_STATE.IDLE_MOVE:
 			_on_idle_move(delta)
 		elif currentState == ENEMY_STATE.SEEKING:
 			_on_seeking_move(delta)
+		elif currentState == ENEMY_STATE.BLOWING_CANDLE:
+			_process_blowing_candle(delta)
 
+		
 
 var angle_rotation_progress = 0.0
-
 var seek_target: Node2D = null
-
 
 func switch_to_idle():
 	seek_target = null
 	currentState = ENEMY_STATE.IDLE_MOVE
+	sprite.animation = 'run'
+
+var _seen_candle: Node2D = null
 
 func _get_seen_candle():
-	var seen = $sight_area.get_overlapping_areas()
-	for area in seen:
-		if area.is_in_group("candle"):
-			return area
-	
+	if _seen_candle == null:
+		var seen = $sight_area.get_overlapping_areas()
+		for area in seen:
+			if area.is_in_group("candle"):
+				_seen_candle = area.get_parent()
+				break
+
+	return _seen_candle
+
+func _get_candle_distance():
+	var candle = _get_seen_candle()
+	if candle == null:
+		return INF
+	return to_local(candle.global_position).length()
+
 func _on_idle_move(delta):
 	angle_rotation_progress += 2 * PI * delta * 0.3
 	var angle_delta = sin(angle_rotation_progress) * PI / 3
@@ -54,15 +72,19 @@ func _on_idle_move(delta):
 	
 	_walk_towards(current_direction, delta)
 
+	if _get_candle_distance() < candleReachDistance:
+		switch_to_blowing_candle()
+	
 
 func _walk_towards(dir, deltaTime):
 	var _i = move_and_slide(dir.normalized() * walkingSpeed * deltaTime * 1000.0)
 	_update_animation(dir)
 
 
-func switch_to_seeking(target):
-	seek_target = target
+func switch_to_seeking(candle):
+	seek_target = candle.get_node("Area2D")
 	currentState = ENEMY_STATE.SEEKING
+	sprite.animation = 'run'
 
 
 func _find_path(global_pos: Vector2):
@@ -136,6 +158,31 @@ func _on_seeking_move(delta):
 		_walk_towards(next_waypoint, delta)
 		break
 
+	if _get_candle_distance() < candleReachDistance:
+		switch_to_blowing_candle()
+	
+func switch_to_blowing_candle():
+	currentState = ENEMY_STATE.BLOWING_CANDLE
+	sprite.animation = 'attacking'
+	$candle_hurt_timer.start()
+
+func _process_blowing_candle(_delta):
+	var dist = _get_candle_distance()
+	if dist >= candleReachDistance:
+		$candle_hurt_timer.stop()
+		switch_to_idle()
+
+func _hurt_candle():
+	var candle = _get_seen_candle()
+	if candle == null:
+		return
+	# `candle` is the object on the floor, the following is *the* candle,
+	# the player's soul
+	var the_candle = get_tree().root.find_node("Candle", true, false)
+	if the_candle == null:
+		print("WTF")
+	else:
+		the_candle.hurt_by_enemy(candleDamage)
 
 func _update_animation(direction):
 	if direction == Vector2.ZERO:

@@ -198,7 +198,13 @@ func _process_walking(delta):
 		else:
 			$steps_timer.wait_time = walkingStepInterval
 		if $steps_timer.is_stopped():
+			generate_step_sound()
 			$steps_timer.start()
+
+
+export var runningSoundRadius = 100.0
+export var walkingSoundRadius = 70.0
+export var sneakingSoundRadius = 35.0
 
 
 func generate_step_sound():
@@ -206,4 +212,12 @@ func generate_step_sound():
 	var node = scene.instance()
 	node.global_position = self.global_position
 	node.emitter = self
+
+	if Input.is_action_pressed("player_sneak"):
+		node.soundRadius = sneakingSoundRadius
+	elif Input.is_action_pressed("player_run"):
+		node.soundRadius = runningSoundRadius
+	else:
+		node.soundRadius = walkingSoundRadius
+
 	get_parent().add_child(node)

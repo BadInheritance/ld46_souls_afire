@@ -36,6 +36,12 @@ signal cast_wall_spell
 signal activate_fountain
 signal on_candle_visible(visible)
 
+func is_godmode_on():
+	return $godmode_label.is_visible()
+
+func set_godmode(enabled):
+	$godmode_label.set_visible(enabled)
+
 
 func _ready():
 	walkingSound.volume_db = normalPlayerVolumeDb
@@ -68,9 +74,10 @@ func start_fall_animation():
 
 
 func on_on_hole():
-	if alive and not is_rolling():
-		alive = false
-		start_fall_animation()
+	if !is_godmode_on():
+		if alive and not is_rolling():
+			alive = false
+			start_fall_animation()
 
 
 func on_fountain_activation():
@@ -85,6 +92,8 @@ func process_debug():
 	if Input.is_action_just_pressed("debug_kill_player"):
 		alive = false
 		start_fall_animation()
+	if Input.is_action_just_pressed("debug_godmode"):
+		set_godmode(!is_godmode_on())
 
 
 func _process(_delta):

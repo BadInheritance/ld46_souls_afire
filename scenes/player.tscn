@@ -31,15 +31,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "hit",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hit",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -62,7 +62,6 @@ rollingSpeed = 20
 position = Vector2( -0.498253, 0.16608 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -14 )
 
@@ -144,6 +143,20 @@ volume_db = -25.0
 
 [node name="steps_timer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="godmode_label" type="Label" parent="."]
+visible = false
+margin_left = -41.457
+margin_top = -35.3987
+margin_right = 42.543
+margin_bottom = -21.3987
+text = "god"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="object_pick_up_update" from="Item picking" to="." method="_on_object_pick_up_update"]
 [connection signal="timeout" from="RollingTimer" to="." method="_stop_rolling"]
 [connection signal="timeout" from="steps_timer" to="." method="generate_step_sound"]

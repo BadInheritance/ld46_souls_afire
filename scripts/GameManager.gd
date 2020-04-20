@@ -17,6 +17,7 @@ export (String, FILE, "*.tscn") var level7_path = "res://scenes/level7.tscn"
 export (String, FILE, "*.tscn") var level8_path = "res://scenes/level8.tscn"
 export (String, FILE, "*.tscn") var level9_path = "res://scenes/level9.tscn"
 export (String, FILE, "*.tscn") var level10_path = "res://scenes/level10.tscn"
+export (String, FILE, "*.tscn") var outro_path = "res://scenes/Outro.tscn"
 
 export var levelReloadTimeSeconds = 1
 var current_level = null
@@ -33,7 +34,8 @@ var levels = [
 	level7_path,
 	level8_path,
 	level9_path,
-	level10_path
+	level10_path,
+	outro_path
 ]
 
 
@@ -131,6 +133,10 @@ func _load_level(level_path):
 		current_level_holder.remove_child(current_level)
 	current_level = level
 	current_level_holder.add_child(current_level)
+	if level_path == outro_path:
+		hud.visible = false
+		loading_level = false
+		return
 
 	_connect_signals(level)
 	var player_camera: Camera2D = level.find_node("player").find_node("camera")

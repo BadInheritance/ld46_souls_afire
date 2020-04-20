@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var walkingSpeed = 5
 export var runningSpeed = 15
-export var snagSpeed    = 1
+export var sneakSpeed = 1
 export var rollingSpeed = 30
 export var wallDistance = 20
 export var normalPlayerVolumeDb = -20
@@ -33,12 +33,15 @@ signal cast_wall_spell
 signal activate_fountain
 signal on_candle_visible(visible)
 
+
 func _ready():
-	walkingSound.volume_db = normalPlayerVolumeDb 
+	walkingSound.volume_db = normalPlayerVolumeDb
 	rollSound.volume_db = normalPlayerVolumeDb
 
+
 func on_on_hatch():
-	emit_signal("player_reached_hatch", item_picking.is_holding_lamp() )
+	emit_signal("player_reached_hatch", item_picking.is_holding_lamp())
+
 
 func _on_object_pick_up_update(action, object):
 	print("put " + action + " object " + object.name)
@@ -46,14 +49,17 @@ func _on_object_pick_up_update(action, object):
 		var candle_visible = action == "up"
 		emit_signal("on_candle_visible", candle_visible)
 
+
 func _die():
 	emit_signal("player_die")
+
 
 func start_fall_animation():
 	var fall_animation_prefab = load("res://prefabs/FallAnimation.tscn")
 	var fall_animation = fall_animation_prefab.instance()
 	fall_animation.connect("fall_animation_completed", self, "_die")
 	add_child(fall_animation)
+
 
 func on_on_hole():
 	if alive and not is_rolling():
@@ -65,10 +71,12 @@ func on_fountain_activation():
 	if item_picking.is_holding_lamp():
 		emit_signal("activate_fountain")
 
+
 func process_debug():
 	if Input.is_action_just_pressed("debug_kill_player"):
 		alive = false
 		start_fall_animation()
+
 
 func _process(_delta):
 	process_debug()
@@ -84,12 +92,14 @@ func _process(_delta):
 func is_rolling():
 	return not rolling_timer.is_stopped()
 
+
 func _physics_process(delta):
 	if alive:
 		if is_rolling():
 			_process_rolling(delta)
 		else:
 			_process_walking(delta)
+
 
 var rolling_dir = Vector2.ZERO
 
@@ -116,7 +126,7 @@ func _stop_rolling():
 
 func _process_walking(delta):
 	var deltaSecs = delta * 1000.0
-	
+
 	var dirX: float = 0
 	var dirY: float = 0
 	if Input.is_action_pressed("player_up"):
@@ -148,8 +158,9 @@ func _process_walking(delta):
 			activeSoundTimer = runningTimer
 			activeSound = runningSound
 
-		if Input.is_action_pressed("player_snag"):
-			speed = snagSpeed
+		if Input.is_action_pressed("player_sneak"):
+			speed = sneakSpeed
+
 		var _i = move_and_slide(dir * speed * deltaSecs)
 
 		if Input.is_action_pressed("player_create_wall") && item_picking.is_holding_lamp():
@@ -158,20 +169,20 @@ func _process_walking(delta):
 			var new_wall
 			if facing_direction == "up":
 				target_position.y -= wallDistance
-				new_wall = hor_wall_scene.instance();
+				new_wall = hor_wall_scene.instance()
 			elif facing_direction == "down":
 				target_position.y += wallDistance
-				new_wall = hor_wall_scene.instance();
+				new_wall = hor_wall_scene.instance()
 			elif facing_direction == "left":
 				target_position.x -= wallDistance
-				new_wall = ver_wall_scene.instance();
+				new_wall = ver_wall_scene.instance()
 			elif facing_direction == "right":
 				target_position.x += wallDistance
-				new_wall = ver_wall_scene.instance();
+				new_wall = ver_wall_scene.instance()
 			new_wall.position = target_position
 			emit_signal("cast_wall_spell")
-			get_parent().add_child(new_wall);
-			wallTimer.start();
+			get_parent().add_child(new_wall)
+			wallTimer.start()
 
 	if dir == Vector2.ZERO:
 		sprite.animation = 'idle'

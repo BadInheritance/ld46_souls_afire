@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/Lamp/Base_hud_candle_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/Lamp/Flame_hud_candle_3.png" type="Texture" id=2]
@@ -9,8 +9,226 @@
 [ext_resource path="res://assets/fonts/font1.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=8]
 [ext_resource path="res://assets/fonts/font2.tres" type="DynamicFont" id=9]
+[ext_resource path="res://prefabs/KeyboardKeyGui.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/keyboard/Keys/E-Key.png" type="Texture" id=11]
+[ext_resource path="res://assets/keyboard/Keys/R-Key.png" type="Texture" id=12]
+[ext_resource path="res://assets/keyboard/Keys/W-Key.png" type="Texture" id=13]
+[ext_resource path="res://assets/keyboard/Keys/Q-Key.png" type="Texture" id=14]
+[ext_resource path="res://assets/keyboard/Keys/left_key.png" type="Texture" id=15]
+[ext_resource path="res://assets/fonts/keyboard_font.tres" type="DynamicFont" id=16]
+[ext_resource path="res://assets/keyboard/Keys/Space-Key.png" type="Texture" id=17]
+[ext_resource path="res://assets/keyboard/Keys/down_key.png" type="Texture" id=18]
+[ext_resource path="res://assets/keyboard/Keys/right_key.png" type="Texture" id=19]
+[ext_resource path="res://assets/keyboard/Keys/up_key.png" type="Texture" id=20]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 64, 0, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 22 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 23 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [ SubResource( 25 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 26 ) ],
+"loop": true,
+"name": "unpressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=28]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
@@ -33,11 +251,203 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1014.0
 margin_bottom = 590.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1004.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 1004.0
+margin_bottom = 104.0
+
+[node name="buttons_gui" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 804.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+
+[node name="key_q" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_right = 90.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 90, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_q" instance=ExtResource( 10 )]
+margin_right = 90.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_vertical = 0
+animatedSprite = SubResource( 3 )
+scancode = 81
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_q"]
+margin_top = 34.0
+margin_right = 90.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "sneak"
+align = 1
+
+[node name="key_w" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 94.0
+margin_right = 199.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 90, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w" instance=ExtResource( 10 )]
+margin_right = 105.0
+margin_bottom = 30.0
+size_flags_vertical = 4
+animatedSprite = SubResource( 6 )
+scancode = 87
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_w"]
+margin_top = 34.0
+margin_right = 105.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 16 )
+text = "make wall"
+align = 1
+valign = 1
+
+[node name="key_e" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 203.0
+margin_right = 323.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e" instance=ExtResource( 10 )]
+margin_right = 120.0
+margin_bottom = 30.0
+size_flags_vertical = 4
+animatedSprite = SubResource( 9 )
+scancode = 69
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_e"]
+margin_top = 34.0
+margin_right = 120.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 16 )
+text = "do action"
+align = 1
+valign = 1
+
+[node name="key_r" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 327.0
+margin_right = 417.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 90, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r" instance=ExtResource( 10 )]
+margin_left = 10.0
+margin_bottom = 30.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+animatedSprite = SubResource( 12 )
+scancode = 82
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_r"]
+margin_top = 34.0
+margin_right = 90.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 16 )
+text = "roll
+"
+align = 1
+valign = 1
+
+[node name="key_spacebar" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 421.0
+margin_right = 550.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar" instance=ExtResource( 10 )]
+margin_right = 129.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 50, 30 )
+size_flags_vertical = 4
+animatedSprite = SubResource( 15 )
+scancode = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/buttons_gui/key_spacebar"]
+margin_top = 34.0
+margin_right = 129.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 16 )
+text = "pick up/drop"
+align = 2
+valign = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui"]
+margin_left = 554.0
+margin_right = 804.0
+margin_bottom = 80.0
+custom_constants/separation = -10
+
+[node name="left_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_right = 70.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/left_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 18 )
+scancode = 16777231
+
+[node name="down_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_left = 60.0
+margin_right = 130.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/down_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 21 )
+scancode = 16777234
+
+[node name="up_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_left = 120.0
+margin_right = 190.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/up_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 24 )
+scancode = 16777232
+
+[node name="right_key" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5"]
+margin_left = 180.0
+margin_right = 250.0
+margin_bottom = 80.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer2/buttons_gui/HBoxContainer5/right_key" instance=ExtResource( 10 )]
+margin_right = 70.0
+margin_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+animatedSprite = SubResource( 27 )
+scancode = 16777233
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 108.0
+margin_right = 1004.0
+margin_bottom = 580.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 2
@@ -45,34 +455,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 60.0
-margin_bottom = 580.0
+margin_bottom = 472.0
 rect_min_size = Vector2( 60, 20 )
 size_flags_horizontal = 5
 size_flags_vertical = 3
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 62.0
 margin_right = 902.0
-margin_bottom = 580.0
+margin_bottom = 472.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
 margin_right = 840.0
-margin_bottom = 86.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 24.0
+margin_right = 840.0
+margin_bottom = 424.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 90.0
-margin_right = 840.0
-margin_bottom = 490.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="hud_main_text" type="RichTextLabel" parent="HBoxContainer/VBoxContainer3/HBoxContainer2"]
+[node name="hud_main_text" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer2"]
 margin_right = 840.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 200, 400 )
@@ -88,17 +497,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 494.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 428.0
 margin_right = 840.0
-margin_bottom = 580.0
+margin_bottom = 472.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3/HBoxContainer3"]
-margin_bottom = 86.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer3"]
+margin_bottom = 44.0
 
-[node name="hud_candle_time_left" type="Label" parent="HBoxContainer/VBoxContainer3/HBoxContainer3/HBoxContainer"]
+[node name="hud_candle_time_left" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer3/HBoxContainer"]
 visible = false
 margin_top = 28.0
 margin_right = 144.0
@@ -106,46 +515,45 @@ margin_bottom = 57.0
 custom_fonts/font = ExtResource( 9 )
 text = "time_left"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 904.0
 margin_right = 1004.0
-margin_bottom = 580.0
+margin_bottom = 472.0
 rect_min_size = Vector2( 60, 300 )
 size_flags_horizontal = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 100.0
-margin_bottom = 446.0
+margin_bottom = 338.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 450.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 342.0
 margin_right = 100.0
-margin_bottom = 580.0
+margin_bottom = 472.0
 size_flags_horizontal = 3
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 100.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 100, 130 )
 
-[node name="Candle" type="Node2D" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control"]
+[node name="Candle" type="Node2D" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control"]
 position = Vector2( 50, 50 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 6 )
-shorteningTimeoutSeconds = 20
 
-[node name="Base" type="Sprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
+[node name="Base" type="Sprite" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
 texture = ExtResource( 1 )
 
-[node name="CandleTop" type="Node2D" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
+[node name="CandleTop" type="Node2D" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
 position = Vector2( -0.139374, -5.43553 )
 
-[node name="Wax" type="Sprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
+[node name="Wax" type="Sprite" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 3.05176e-05, -5.57494 )
 texture = ExtResource( 3 )
 centered = false
@@ -153,12 +561,12 @@ offset = Vector2( -16, 0 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[node name="Flame" type="AnimatedSprite" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
+[node name="Flame" type="AnimatedSprite" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle/CandleTop"]
 position = Vector2( 0, 5.04198 )
-frames = SubResource( 1 )
-frame = 1
+frames = SubResource( 28 )
+frame = 2
 playing = true
 
-[node name="Timer" type="Timer" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
+[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle"]
 one_shot = true
-[connection signal="candle_die" from="HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle" to="." method="_fwd_candle_die"]
+[connection signal="candle_die" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Control/Candle" to="." method="_fwd_candle_die"]

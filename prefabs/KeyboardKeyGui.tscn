@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/KeyboardKeyGui.gd" type="Script" id=1]
+[ext_resource path="res://assets/keyboard/Keys/Blank-Md-Key.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 32 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="KeyboardKeyGui" type="HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 60, 30 )
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_right = 76.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+margin_right = 5.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" type="HBoxContainer" parent="HBoxContainer2"]
+margin_left = 9.0
+margin_right = 67.0
+margin_bottom = 20.0
+grow_horizontal = 2
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 4.5
+
+[node name="Control" type="Control" parent="HBoxContainer2/Control2"]
+margin_right = 25.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 25, 0 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="HBoxContainer2/Control2"]
+margin_left = 29.0
+margin_right = 29.0
+margin_bottom = 20.0
+size_flags_horizontal = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HBoxContainer2/Control2/Control2"]
+frames = SubResource( 2 )
+
+[node name="Control3" type="Control" parent="HBoxContainer2/Control2"]
+margin_left = 33.0
+margin_right = 58.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 25, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="HBoxContainer2"]
+margin_left = 71.0
+margin_right = 76.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

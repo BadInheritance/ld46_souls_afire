@@ -125,5 +125,8 @@ position = Vector2( -255.961, -64.2748 )
 [node name="enemy" parent="Navigation2D" instance=ExtResource( 3 )]
 position = Vector2( -70.6627, -227.877 )
 
+[node name="holetile1_3" parent="Navigation2D" instance=ExtResource( 10 )]
+position = Vector2( -343.851, -281.096 )
+
 [node name="LevelParams" parent="." instance=ExtResource( 2 )]
 candleTime = 90
